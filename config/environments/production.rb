@@ -51,6 +51,9 @@ Rails.application.configure do
     config.active_job.queue_adapter = :async
   end
 
+  # Active Storage (user avatars) — requires config/storage.yml
+  config.active_storage.service = ENV.fetch("ACTIVE_STORAGE_SERVICE", "local").to_sym
+
   # Email — use SMTP when configured; otherwise :test (no crash without Resend key)
   config.action_mailer.default_url_options = {
     host: ENV.fetch("APP_DOMAIN", "experthub.app"),

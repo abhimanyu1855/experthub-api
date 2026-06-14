@@ -1,0 +1,13 @@
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+
+# Render free tier: ephemeral disk (avatars survive until redeploy).
+# Upgrade to S3/R2 later by adding an amazon/s3 service and setting ACTIVE_STORAGE_SERVICE.
+production:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>

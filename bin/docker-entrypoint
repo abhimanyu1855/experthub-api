@@ -1,8 +1,15 @@
 #!/bin/bash -e
 
-# If running the rails server then create or migrate existing database
-if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
+# Render CMD: sh -c "bin/rails server -b 0.0.0.0 -p $PORT"
+if [[ "$*" == *"bin/rails server"* ]] || [[ "$*" == *"rails server"* ]]; then
+  mkdir -p storage tmp/storage
+  set +e
   ./bin/rails db:prepare
+  prepare_status=$?
+  set -e
+  if [ "$prepare_status" -ne 0 ]; then
+    echo "WARNING: db:prepare failed (exit $prepare_status). Starting web server anyway — check DATABASE_URL and Render logs."
+  fi
 fi
 
-exec "${@}"
+exec "$@"
