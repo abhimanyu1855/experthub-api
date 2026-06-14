@@ -8,6 +8,8 @@ envVarGroups:
         value: production
       - key: SOLID_QUEUE_IN_PUMA
         value: "true"
+      - key: PGSSLMODE
+        value: require
       - key: DATABASE_URL
         sync: false
       - key: QUEUE_DATABASE_URL

@@ -21,8 +21,10 @@ production:
     <<: *default
     url: <%= ENV["DATABASE_URL"] %>
     migrations_paths: db/migrate
+    sslmode: <%= ENV.fetch("PGSSLMODE", "require") %>
 
   queue:
     <<: *default
     url: <%= ENV.fetch("QUEUE_DATABASE_URL") { ENV["DATABASE_URL"] } %>
     migrations_paths: db/queue_migrate
+    sslmode: <%= ENV.fetch("PGSSLMODE", "require") %>
