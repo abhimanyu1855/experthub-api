@@ -6,6 +6,8 @@ envVarGroups:
     envVars:
       - key: RAILS_ENV
         value: production
+      - key: SOLID_QUEUE_IN_PUMA
+        value: "true"
       - key: DATABASE_URL
         sync: false
       - key: QUEUE_DATABASE_URL
@@ -76,10 +78,14 @@ services:
     envVars:
       - fromGroup: experthub-env
 
-  - type: worker
-    name: experthub-worker
-    runtime: docker
-    plan: free
-    dockerCommand: bin/jobs
-    envVars:
-      - fromGroup: experthub-env
+# Background workers are NOT available on Render's free plan.
+# Solid Queue runs inside Puma when SOLID_QUEUE_IN_PUMA=true (see config/puma.rb).
+# To use a dedicated worker, upgrade to Render Starter ($7/mo) and uncomment:
+#
+#  - type: worker
+#    name: experthub-worker
+#    runtime: docker
+#    plan: starter
+#    dockerCommand: bin/jobs
+#    envVars:
+#      - fromGroup: experthub-env
