@@ -47,6 +47,9 @@ Rails.application.configure do
   config.active_job.queue_adapter = :solid_queue
   config.solid_queue.connects_to = { database: { writing: :queue } }
 
+  # Active Storage (user avatars) — requires config/storage.yml
+  config.active_storage.service = ENV.fetch("ACTIVE_STORAGE_SERVICE", "local").to_sym
+
   # Raise on email delivery failures in production
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
