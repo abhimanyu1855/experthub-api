@@ -6,6 +6,10 @@ envVarGroups:
     envVars:
       - key: RAILS_ENV
         value: production
+      - key: SOLID_QUEUE_IN_PUMA
+        value: "true"
+      - key: PGSSLMODE
+        value: require
       - key: DATABASE_URL
         sync: false
       - key: QUEUE_DATABASE_URL
@@ -76,10 +80,4 @@ services:
     envVars:
       - fromGroup: experthub-env
 
-  - type: worker
-    name: experthub-worker
-    runtime: docker
-    plan: free
-    dockerCommand: bin/jobs
-    envVars:
-      - fromGroup: experthub-env
+# Background workers require Render Starter ($7/mo). Jobs run in Puma via SOLID_QUEUE_IN_PUMA.
