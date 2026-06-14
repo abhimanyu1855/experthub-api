@@ -1,0 +1,98 @@
+# Kamal 2 deploy configuration for ExpertHub API
+# Deploy:  bundle exec kamal deploy
+# Rollback: bundle exec kamal rollback
+# Docs:    https://kamal-deploy.org
+
+service: experthub-api
+
+# TODO: replace with your actual registry path, e.g. ghcr.io/your-org/experthub-api
+image: your-registry/experthub-api
+
+servers:
+  web:
+    hosts:
+      - 1.2.3.4  # Replace with your server IP
+    options:
+      memory: 1g
+    healthcheck:
+      path: /up
+      interval: 10
+      timeout: 5
+  job:
+    hosts:
+      - 1.2.3.4  # Same or separate server for Solid Queue worker
+    cmd: bin/jobs
+    options:
+      memory: 512m
+
+registry:
+  # TODO: update username to match your registry (Docker Hub, GHCR, etc.)
+  username: your-registry-username
+  password:
+    - KAMAL_REGISTRY_PASSWORD  # Set in .kamal/secrets
+
+builder:
+  arch: amd64
+  cache:
+    type: gha
+
+env:
+  clear:
+    RAILS_ENV: production
+    APP_DOMAIN: experthub.app
+    RAILS_MAX_THREADS: "5"
+    SMTP_ADDRESS: smtp.resend.com
+    SMTP_PORT: "587"
+    SMTP_USER: resend
+  secret:
+    - RAILS_MASTER_KEY
+    - DATABASE_URL
+    - QUEUE_DATABASE_URL
+    - REDIS_URL
+    - DEVISE_JWT_SECRET_KEY
+    - ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY
+    - ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY
+    - ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT
+    - SMTP_PASSWORD
+    - MAILER_FROM
+    - STRIPE_SECRET_KEY
+    - PLATFORM_STRIPE_SECRET_KEY
+    - PLATFORM_STRIPE_WEBHOOK_SECRET
+    - OPENAI_API_KEY
+    - ANTHROPIC_API_KEY
+    - DAILY_API_KEY
+    - SENTRY_DSN
+    - CORS_EXTRA_ORIGINS
+
+logging:
+  driver: json-file
+  options:
+    max-size: 10m
+    max-file: "3"
+
+accessories:
+  postgres:
+    image: pgvector/pgvector:pg16
+    host: 1.2.3.4  # Replace with your server IP
+    port: 5432
+    env:
+      secret:
+        - POSTGRES_PASSWORD
+    directories:
+      - data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    host: 1.2.3.4  # Replace with your server IP
+    port: 6379
+    directories:
+      - data:/data
+
+proxy:
+  ssl: true
+  host: api.experthub.app
+  app_port: 3000
+  healthcheck:
+    path: /up
+    interval: 10
+    timeout: 5

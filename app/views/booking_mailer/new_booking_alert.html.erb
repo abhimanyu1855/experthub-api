@@ -1,0 +1,15 @@
+<p>Hi <%= @expert.displayed_name %>,</p>
+
+<p>You have a new booking on <%= @tenant.name %>!</p>
+
+<div class="detail-box">
+  <table>
+    <tr><td>Client</td><td><%= @client.displayed_name %></td></tr>
+    <tr><td>Service</td><td><%= @service.title %></td></tr>
+    <tr><td>Date &amp; Time</td><td><%= @booking.start_time.strftime("%A, %b %-d %Y at %-I:%M %p") %></td></tr>
+    <tr><td>Duration</td><td><%= @booking.duration_minutes %> minutes</td></tr>
+    <tr><td>Your Earnings</td><td><%= @booking.currency.upcase %> <%= (@booking.expert_payout_cents / 100.0).round(2) %></td></tr>
+  </table>
+</div>
+
+<p>Please confirm this booking as soon as possible to secure the session.</p>

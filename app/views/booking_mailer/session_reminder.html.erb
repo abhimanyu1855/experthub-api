@@ -1,0 +1,15 @@
+<p>Hi <%= @client.displayed_name %>,</p>
+
+<p>Your session starts in <strong>10 minutes</strong>!</p>
+
+<div class="detail-box">
+  <table>
+    <tr><td>Service</td><td><%= @service.title %></td></tr>
+    <tr><td>Expert</td><td><%= @expert.displayed_name %></td></tr>
+    <tr><td>Start Time</td><td><%= @booking.start_time.strftime("%-I:%M %p") %></td></tr>
+  </table>
+</div>
+
+<% if @booking.video_room_url.present? %>
+  <a class="btn" href="<%= @booking.video_room_url %>">Join Session Now</a>
+<% end %>

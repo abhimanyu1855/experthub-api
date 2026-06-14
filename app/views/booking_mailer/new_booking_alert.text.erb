@@ -1,0 +1,11 @@
+Hi <%= @expert.displayed_name %>,
+
+You have a new booking on <%= @tenant.name %>!
+
+  Client:     <%= @client.displayed_name %>
+  Service:    <%= @service.title %>
+  Date/Time:  <%= @booking.start_time.strftime("%A, %b %-d %Y at %-I:%M %p") %>
+  Duration:   <%= @booking.duration_minutes %> minutes
+  Earnings:   <%= @booking.currency.upcase %> <%= (@booking.expert_payout_cents / 100.0).round(2) %>
+
+Please confirm this booking as soon as possible.

@@ -1,0 +1,35 @@
+current directory: /Users/sambhar/Desktop/experthub-api/gems/bootsnap-1.24.6/ext/bootsnap
+/Users/sambhar/.rbenv/versions/3.3.7/bin/ruby extconf.rb
+checking for fdatasync() in unistd.h... yes
+checking for fstatat() in sys/stat.h... yes
+checking for whether -D_GNU_SOURCE is accepted as CPPFLAGS... no
+checking for whether -O3 is accepted as CFLAGS... no
+checking for whether -std=c99 is accepted as CFLAGS... no
+creating Makefile
+
+current directory: /Users/sambhar/Desktop/experthub-api/gems/bootsnap-1.24.6/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20260610-35860-srbnkr sitelibdir\=./.gem.20260610-35860-srbnkr clean
+
+current directory: /Users/sambhar/Desktop/experthub-api/gems/bootsnap-1.24.6/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20260610-35860-srbnkr sitelibdir\=./.gem.20260610-35860-srbnkr
+compiling bootsnap.c
+In file included from bootsnap.c:14:
+In file included from /Users/sambhar/.rbenv/versions/3.3.7/include/ruby-3.3.0/ruby.h:38:
+In file included from /Users/sambhar/.rbenv/versions/3.3.7/include/ruby-3.3.0/ruby/ruby.h:28:
+In file included from /Users/sambhar/.rbenv/versions/3.3.7/include/ruby-3.3.0/ruby/internal/arithmetic.h:24:
+In file included from /Users/sambhar/.rbenv/versions/3.3.7/include/ruby-3.3.0/ruby/internal/arithmetic/char.h:29:
+/Users/sambhar/.rbenv/versions/3.3.7/include/ruby-3.3.0/ruby/internal/core/rstring.h:398:24: warning: default initialization of an object of type 'struct RString' with const member leaves the object uninitialized [-Wdefault-const-init-field-unsafe]
+  398 |         struct RString retval;
+      |                        ^
+/Users/sambhar/.rbenv/versions/3.3.7/include/ruby-3.3.0/ruby/internal/core/rbasic.h:88:17: note: member 'klass' declared 'const' here
+   88 |     const VALUE klass;
+      |                 ^
+1 warning generated.
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/sambhar/Desktop/experthub-api/gems/bootsnap-1.24.6/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20260610-35860-srbnkr sitelibdir\=./.gem.20260610-35860-srbnkr install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20260610-35860-srbnkr/bootsnap
+
+current directory: /Users/sambhar/Desktop/experthub-api/gems/bootsnap-1.24.6/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20260610-35860-srbnkr sitelibdir\=./.gem.20260610-35860-srbnkr clean

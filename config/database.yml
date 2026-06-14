@@ -1,0 +1,28 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: experthub_development
+
+  queue:
+    <<: *default
+    database: experthub_development_queue
+    migrations_paths: db/queue_migrate
+
+test:
+  <<: *default
+  database: experthub_test
+
+production:
+  primary:
+    <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
+    migrations_paths: db/migrate
+
+  queue:
+    <<: *default
+    url: <%= ENV.fetch("QUEUE_DATABASE_URL") { ENV["DATABASE_URL"] } %>
+    migrations_paths: db/queue_migrate

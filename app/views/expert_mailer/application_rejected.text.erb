@@ -1,0 +1,14 @@
+Hi <%= @user.displayed_name %>,
+
+Thank you for your interest in joining <%= @tenant.name %> as an expert.
+
+After careful review, we're unable to approve your application at this time.
+
+<% if @reason.present? %>
+Feedback from our review team:
+<%= @reason %>
+
+<% end %>
+We encourage you to address the feedback and reapply in the future.
+
+The <%= @tenant.name %> Team

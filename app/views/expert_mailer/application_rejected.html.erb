@@ -1,0 +1,18 @@
+<p>Hi <%= @user.displayed_name %>,</p>
+
+<p>Thank you for your interest in joining <strong><%= @tenant.name %></strong> as an expert.</p>
+
+<p>After careful review, we're unable to approve your application at this time.</p>
+
+<% if @reason.present? %>
+<div class="detail-box">
+  <p><strong>Feedback from our review team:</strong></p>
+  <p><%= @reason %></p>
+</div>
+<% end %>
+
+<p>We encourage you to address the feedback above and reapply in the future. If you have any questions, please reach out to our support team.</p>
+
+<p>Thank you for your understanding.</p>
+
+<p>The <%= @tenant.name %> Team</p>

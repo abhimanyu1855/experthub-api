@@ -1,0 +1,21 @@
+DryAutoInject/DependencyOrder:
+  Description: 'Enforces a configurable order for dry-auto_inject `Import[...]` dependencies.'
+  Enabled: true
+  VersionAdded: '1.2'
+  InjectorModules:
+    - 'Import'
+    - '*::Import'
+    - 'Deps'
+    - '*::Deps'
+  Order:
+    - '*'
+
+DryAutoInject/RedundantAlias:
+  Description: 'Flags dry-auto_inject imports whose hash key matches the last segment of the path.'
+  Enabled: true
+  VersionAdded: '1.2'
+  InjectorModules:
+    - 'Import'
+    - '*::Import'
+    - 'Deps'
+    - '*::Deps'

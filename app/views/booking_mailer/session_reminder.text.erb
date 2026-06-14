@@ -1,0 +1,10 @@
+Hi <%= @client.displayed_name %>,
+
+Your session with <%= @expert.displayed_name %> starts in 10 minutes!
+
+  Service:    <%= @service.title %>
+  Start Time: <%= @booking.start_time.strftime("%-I:%M %p") %>
+<% if @booking.video_room_url.present? %>
+
+Join here: <%= @booking.video_room_url %>
+<% end %>

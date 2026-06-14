@@ -1,0 +1,18 @@
+<p>Hi <%= @client.displayed_name %>,</p>
+
+<p>Your booking has been confirmed and payment received. Here are the details:</p>
+
+<div class="detail-box">
+  <table>
+    <tr><td>Service</td><td><%= @service.title %></td></tr>
+    <tr><td>Expert</td><td><%= @expert.displayed_name %></td></tr>
+    <tr><td>Date &amp; Time</td><td><%= @booking.start_time.strftime("%A, %b %-d %Y at %-I:%M %p") %></td></tr>
+    <tr><td>Duration</td><td><%= @booking.duration_minutes %> minutes</td></tr>
+    <tr><td>Amount Paid</td><td><%= @booking.currency.upcase %> <%= (@booking.client_total_cents / 100.0).round(2) %></td></tr>
+    <tr><td>Booking ID</td><td>#<%= @booking.id %></td></tr>
+  </table>
+</div>
+
+<p>You will receive a session link closer to the time.</p>
+
+<p>Thanks for booking on <%= @tenant.name %>!</p>
