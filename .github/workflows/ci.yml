@@ -37,7 +37,7 @@ jobs:
       ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT: testkeysalt1234567890123456789012
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - uses: ruby/setup-ruby@v1
         with:
