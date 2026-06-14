@@ -43,32 +43,39 @@ Rails.application.configure do
   # Solid Cache for durable caching (webhook idempotency, rate limiting, etc.)
   config.cache_store = :solid_cache_store
 
-  # Solid Queue for background jobs
-  config.active_job.queue_adapter = :solid_queue
-  config.solid_queue.connects_to = { database: { writing: :queue } }
+  # Solid Queue for background jobs (optional in Puma on Render free tier)
+  if ENV["SOLID_QUEUE_IN_PUMA"] == "true"
+    config.active_job.queue_adapter = :solid_queue
+    config.solid_queue.connects_to = { database: { writing: :queue } }
+  else
+    config.active_job.queue_adapter = :async
+  end
 
   # Active Storage (user avatars) — requires config/storage.yml
   config.active_storage.service = ENV.fetch("ACTIVE_STORAGE_SERVICE", "local").to_sym
 
-  # Raise on email delivery failures in production
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
+  # Email — use SMTP when configured; otherwise :test (no crash without Resend key)
   config.action_mailer.default_url_options = {
     host: ENV.fetch("APP_DOMAIN", "experthub.app"),
     protocol: "https"
   }
 
-  # SMTP via environment variables — works with Resend, Postmark, SES, etc.
-  # Set SMTP_ADDRESS, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, SMTP_DOMAIN in your env
-  config.action_mailer.smtp_settings = {
-    address:              ENV.fetch("SMTP_ADDRESS", "smtp.resend.com"),
-    port:                 ENV.fetch("SMTP_PORT", 587).to_i,
-    domain:               ENV.fetch("SMTP_DOMAIN", ENV.fetch("APP_DOMAIN", "experthub.app")),
-    user_name:            ENV.fetch("SMTP_USER", "resend"),
-    password:             ENV["SMTP_PASSWORD"],
-    authentication:       :plain,
-    enable_starttls_auto: true
-  }
+  if ENV["SMTP_PASSWORD"].present?
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address:              ENV.fetch("SMTP_ADDRESS", "smtp.resend.com"),
+      port:                 ENV.fetch("SMTP_PORT", 587).to_i,
+      domain:               ENV.fetch("SMTP_DOMAIN", ENV.fetch("APP_DOMAIN", "experthub.app")),
+      user_name:            ENV.fetch("SMTP_USER", "resend"),
+      password:             ENV["SMTP_PASSWORD"],
+      authentication:       :plain,
+      enable_starttls_auto: true
+    }
+  else
+    config.action_mailer.raise_delivery_errors = false
+    config.action_mailer.delivery_method = :test
+  end
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
