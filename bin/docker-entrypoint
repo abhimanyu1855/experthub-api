@@ -3,6 +3,14 @@
 # Render CMD: sh -c "bin/rails server -b 0.0.0.0 -p $PORT"
 if [[ "$*" == *"bin/rails server"* ]] || [[ "$*" == *"rails server"* ]]; then
   mkdir -p storage tmp/storage
+
+  if [[ "${DATABASE_URL:-}" == *"db."*".supabase.co"* ]] && [[ "${DATABASE_URL:-}" != *"pooler"* ]]; then
+    echo "WARNING: DATABASE_URL uses Supabase direct host (db.*.supabase.co)."
+    echo "         Render often cannot reach that over IPv6. Use the Session pooler URI from"
+    echo "         Supabase → Project Settings → Database → Connection string → Session mode."
+    echo "         Example host: aws-0-<region>.pooler.supabase.com:5432/postgres?sslmode=require"
+  fi
+
   set +e
   ./bin/rails db:prepare
   prepare_status=$?
