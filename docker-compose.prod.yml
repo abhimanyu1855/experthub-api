@@ -1,0 +1,61 @@
+# Production stack for a single EC2 instance (AWS Free Tier).
+# Usage:
+#   cp .env.production.example .env.production   # fill in secrets + nip.io domain
+#   docker compose -f docker-compose.prod.yml up -d --build
+#   docker compose -f docker-compose.prod.yml exec api bin/rails db:prepare
+#   docker compose -f docker-compose.prod.yml exec api env SEED_DEMO=1 bin/rails db:seed
+
+services:
+  postgres:
+    image: ankane/pgvector
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+      POSTGRES_DB: experthub_production
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - redisdata:/data
+
+  api:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env.production
+    environment:
+      DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@postgres:5432/experthub_production
+      QUEUE_DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@postgres:5432/experthub_production
+      REDIS_URL: redis://redis:6379/1
+      PORT: "3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    volumes:
+      - storage:/rails/storage
+
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ../experthub-web/dist:/usr/share/nginx/html:ro
+    depends_on:
+      - api
+
+volumes:
+  pgdata:
+  redisdata:
+  storage:
