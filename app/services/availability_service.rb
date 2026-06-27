@@ -13,15 +13,16 @@ class AvailabilityService
   # @param date [Date]
   # @param timezone_offset [Integer] client timezone offset in minutes from UTC
   # @return [Array<Hash>] available slots with :start_time, :end_time, :available
-  def self.available_slots(service:, date:, timezone_offset: 0)
-    new(service: service, date: date, timezone_offset: timezone_offset).call
+  def self.available_slots(service:, date:, timezone_offset: 0, client_id: nil)
+    new(service: service, date: date, timezone_offset: timezone_offset, client_id: client_id).call
   end
 
-  def initialize(service:, date:, timezone_offset:)
+  def initialize(service:, date:, timezone_offset:, client_id: nil)
     @service = service
     @expert_profile = service.expert_profile
     @date = date
     @timezone_offset = timezone_offset
+    @client_id = client_id
   end
 
   def call
@@ -96,16 +97,17 @@ class AvailabilityService
     end
   end
 
-  # Get all confirmed/paid bookings for this expert on this date
+  # Get all bookings and group sessions that block 1:1 availability on this date
   def booked_slots_for_date
     start_of_day = @date.in_time_zone.beginning_of_day
     end_of_day = @date.in_time_zone.end_of_day
 
-    Booking.where(expert_id: @expert_profile.user_id)
-           .confirmed_or_paid
-           .where("start_time < ? AND end_time > ?", end_of_day, start_of_day)
-           .pluck(:start_time, :end_time)
-           .map { |s, e| { start: s, end: e } }
+    ExpertScheduleService.blocking_intervals(
+      expert_profile: @expert_profile,
+      range_start: start_of_day,
+      range_end: end_of_day,
+      exclude_client_id: @client_id
+    )
   end
 
   def parse_time(time_string)

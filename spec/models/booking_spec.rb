@@ -19,10 +19,18 @@ RSpec.describe Booking, type: :model do
       expect(overlap.errors[:base]).to include("Expert has a conflicting booking at this time")
     end
 
-    it "allows overlapping bookings if the existing booking is pending or canceled" do
+    it "prevents overlapping pending bookings for the same expert" do
       existing = create(:booking, start_time: Time.current + 1.hour, end_time: Time.current + 2.hours, aasm_state: "pending")
-      
+
       overlap = build(:booking, service: existing.service, client: existing.client, start_time: Time.current + 30.minutes, end_time: Time.current + 90.minutes)
+      expect(overlap).not_to be_valid
+      expect(overlap.errors[:base]).to include("This time slot is already reserved. Please choose another time.")
+    end
+
+    it "allows overlapping bookings if the existing pending checkout expired" do
+      existing = create(:booking, start_time: Time.current + 1.hour, end_time: Time.current + 2.hours, aasm_state: "pending", created_at: 31.minutes.ago)
+
+      overlap = build(:booking, service: existing.service, start_time: Time.current + 30.minutes, end_time: Time.current + 90.minutes)
       expect(overlap).to be_valid
     end
   end

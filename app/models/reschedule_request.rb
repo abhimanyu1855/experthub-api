@@ -68,13 +68,24 @@ class RescheduleRequest < ApplicationRecord
   def no_overlapping_bookings
     return unless booking && new_start_time && new_end_time
 
-    overlapping = Booking.where(expert_id: booking.expert_id)
-                         .where.not(id: booking.id)
-                         .confirmed_or_paid
-                         .where("start_time < ? AND end_time > ?", new_end_time, new_start_time)
+    expert_profile = booking.service.expert_profile
 
-    if overlapping.exists?
+    if ExpertScheduleService.conflicting_booking?(
+      expert_id: booking.expert_id,
+      start_time: new_start_time,
+      end_time: new_end_time,
+      exclude_booking_id: booking.id
+    )
       errors.add(:base, "Expert has a conflicting booking at this new time")
+      return
+    end
+
+    if ExpertScheduleService.conflicting_group_session?(
+      expert_profile_id: expert_profile.id,
+      start_time: new_start_time,
+      end_time: new_end_time
+    )
+      errors.add(:base, "Expert has a group session at this new time")
     end
   end
 end

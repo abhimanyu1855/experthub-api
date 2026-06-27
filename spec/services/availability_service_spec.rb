@@ -45,6 +45,41 @@ RSpec.describe AvailabilityService, type: :service do
       expect(slots[3][:available]).to be true  # 10:30 - 11:00
     end
 
+    it "marks slots as unavailable when a group session overlaps" do
+      create(:group_session, expert_profile: expert_profile, tenant: tenant,
+             start_time: date.in_time_zone.change(hour: 9, min: 30),
+             end_time: date.in_time_zone.change(hour: 10, min: 0))
+
+      slots = described_class.available_slots(service: service, date: date)
+      expect(slots[1][:available]).to be false
+    end
+
+    it "marks slots as unavailable when a pending checkout overlaps" do
+      create(:booking, service: service, expert: expert, tenant: tenant,
+             start_time: date.in_time_zone.change(hour: 9, min: 30),
+             end_time: date.in_time_zone.change(hour: 10, min: 0),
+             aasm_state: "payment_initiated")
+
+      slots = described_class.available_slots(service: service, date: date)
+      expect(slots[1][:available]).to be false
+    end
+
+    it "allows a client to see the slot as available if the checkout hold belongs to them" do
+      client = create(:user)
+      create(:booking, service: service, expert: expert, tenant: tenant, client: client,
+             start_time: date.in_time_zone.change(hour: 9, min: 30),
+             end_time: date.in_time_zone.change(hour: 10, min: 0),
+             aasm_state: "payment_initiated")
+
+      # Without passing client_id, the slot is blocked
+      slots = described_class.available_slots(service: service, date: date)
+      expect(slots[1][:available]).to be false
+
+      # With passing client_id, the slot is available
+      slots_with_client = described_class.available_slots(service: service, date: date, client_id: client.id)
+      expect(slots_with_client[1][:available]).to be true
+    end
+
     it "returns empty array if the date is blocked" do
       create(:blocked_date, service: service, blocked_on: date)
 
