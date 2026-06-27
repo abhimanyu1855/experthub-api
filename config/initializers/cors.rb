@@ -8,7 +8,11 @@ app_domain = ENV.fetch("APP_DOMAIN", "experthub.localhost")
 allowed_origins = [
   "http://localhost:5173",
   "http://localhost:5174",
+  "http://localhost:5178",
+  "http://127.0.0.1:5178",
   "http://localhost:3001",
+  /\Ahttps?:\/\/localhost:\d+\z/,
+  /\Ahttps?:\/\/127\.0\.0\.1:\d+\z/,
   /\Ahttps?:\/\/.*\.localhost(:\d+)?\z/
 ]
 
