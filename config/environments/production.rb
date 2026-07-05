@@ -18,11 +18,10 @@ Rails.application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
 
-  # Assume all access to the app is happening through a SSL-terminating reverse proxy.
-  config.assume_ssl = true
-
-  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  # Set FORCE_SSL=false for HTTP-only demos (e.g. nip.io on EC2 without a domain).
+  force_ssl_enabled = ENV.fetch("FORCE_SSL", "true") == "true"
+  config.assume_ssl = force_ssl_enabled
+  config.force_ssl = force_ssl_enabled
 
   # Skip http-to-https redirect for the default health check endpoint.
   # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
@@ -40,35 +39,47 @@ Rails.application.configure do
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
 
-  # Solid Cache for durable caching (webhook idempotency, rate limiting, etc.)
-  config.cache_store = :solid_cache_store
+  # Solid Cache needs DB tables; use in-memory cache until explicitly enabled.
+  config.cache_store =
+    if ENV["SOLID_CACHE"] == "true"
+      :solid_cache_store
+    else
+      :memory_store
+    end
 
-  # Solid Queue for background jobs
-  config.active_job.queue_adapter = :solid_queue
-  config.solid_queue.connects_to = { database: { writing: :queue } }
+  # Solid Queue for background jobs (optional — disabled on EC2 free tier by default).
+  if ENV["SOLID_QUEUE_IN_PUMA"] == "true"
+    config.active_job.queue_adapter = :solid_queue
+    config.solid_queue.connects_to = { database: { writing: :queue } }
+  else
+    config.active_job.queue_adapter = :async
+  end
 
   # Active Storage (user avatars) — requires config/storage.yml
   config.active_storage.service = ENV.fetch("ACTIVE_STORAGE_SERVICE", "local").to_sym
 
-  # Raise on email delivery failures in production
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
+  mailer_protocol = force_ssl_enabled ? "https" : "http"
   config.action_mailer.default_url_options = {
     host: ENV.fetch("APP_DOMAIN", "experthub.app"),
-    protocol: "https"
+    protocol: mailer_protocol
   }
 
-  # SMTP via environment variables — works with Resend, Postmark, SES, etc.
-  # Set SMTP_ADDRESS, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, SMTP_DOMAIN in your env
-  config.action_mailer.smtp_settings = {
-    address:              ENV.fetch("SMTP_ADDRESS", "smtp.resend.com"),
-    port:                 ENV.fetch("SMTP_PORT", 587).to_i,
-    domain:               ENV.fetch("SMTP_DOMAIN", ENV.fetch("APP_DOMAIN", "experthub.app")),
-    user_name:            ENV.fetch("SMTP_USER", "resend"),
-    password:             ENV["SMTP_PASSWORD"],
-    authentication:       :plain,
-    enable_starttls_auto: true
-  }
+  if ENV["SMTP_PASSWORD"].present?
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address:              ENV.fetch("SMTP_ADDRESS", "smtp.resend.com"),
+      port:                 ENV.fetch("SMTP_PORT", 587).to_i,
+      domain:               ENV.fetch("SMTP_DOMAIN", ENV.fetch("APP_DOMAIN", "experthub.app")),
+      user_name:            ENV.fetch("SMTP_USER", "resend"),
+      password:             ENV["SMTP_PASSWORD"],
+      authentication:       :plain,
+      enable_starttls_auto: true
+    }
+  else
+    config.action_mailer.raise_delivery_errors = false
+    config.action_mailer.delivery_method = :test
+  end
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -81,7 +92,7 @@ Rails.application.configure do
   config.active_record.attributes_for_inspect = [ :id ]
 
   # DNS rebinding protection — allow the root domain and all subdomains.
-  # APP_DOMAIN=experthub.app → allows experthub.app and *.experthub.app
+  # APP_DOMAIN=54-123-45-67.nip.io → allows that host and *.54-123-45-67.nip.io
   app_domain = ENV.fetch("APP_DOMAIN", "experthub.app")
   config.hosts = [
     app_domain,
