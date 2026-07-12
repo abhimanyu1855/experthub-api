@@ -1,0 +1,43 @@
+# Build artifacts
+node_modules/
+dist/
+build/
+coverage/
+tmp/
+log/
+storage/
+vendor/
+vendor/bundle/
+gems/
+public/assets/
+.git/
+
+# Graphify cache (optional — commit for speed, ignore to keep repo small)
+graphify-out/cache/
+graphify-out/cost.json
+
+# Secrets and local env
+.env*
+!.env.example
+config/master.key
+
+# Large/binary
+*.png
+*.jpg
+*.pdf
+*.mp4
+
+# Only index first-party code (uncomment to restrict to app code only)
+# *
+# !app/
+# !app/**
+# !config/
+# !config/**
+# !lib/
+# !lib/**
+# !spec/
+# !spec/**
+# !db/
+# !db/**
+# !deploy/
+# !deploy/**

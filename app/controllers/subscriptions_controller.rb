@@ -21,6 +21,9 @@ class SubscriptionsController < ApplicationController
     )
 
     if subscription.save
+      if plan.expert_profile.present?
+        StripeService.transfer_subscription_payout(subscription) rescue nil
+      end
       render json: subscription, status: :created
     else
       render json: { errors: subscription.errors.full_messages }, status: :unprocessable_entity

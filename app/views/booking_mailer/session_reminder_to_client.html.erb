@@ -1,0 +1,13 @@
+<p>Hi <%= @client.displayed_name %>,</p>
+
+<p>Your session starts in <strong>10 minutes</strong>!</p>
+
+<div class="detail-box">
+  <table>
+    <tr><td>Service</td><td><%= @service.title %></td></tr>
+    <tr><td>Expert</td><td><%= @expert.displayed_name %></td></tr>
+    <tr><td>Start Time</td><td><%= @booking.start_time.strftime("%-I:%M %p") %></td></tr>
+  </table>
+</div>
+
+<p><a class="btn" style="color: #ffffff;" href="http://<%= @tenant.domain.presence || "#{@tenant.ident}.experthub.localhost" %>/session/<%= @booking.id %>">Join Session Now</a></p>

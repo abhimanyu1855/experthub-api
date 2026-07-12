@@ -1,0 +1,16 @@
+<p>Hi <%= @client.displayed_name %>,</p>
+
+<p>Your session with <strong><%= @expert.displayed_name %></strong> has ended. We hope it was valuable!</p>
+
+<div class="detail-box">
+  <table>
+    <tr><td>Service</td><td><%= @service.title %></td></tr>
+    <tr><td>Date</td><td><%= @booking.start_time.strftime("%A, %b %-d %Y") %></td></tr>
+  </table>
+</div>
+
+<p>Please take a moment to leave a review for <%= @expert.displayed_name %>. Reviews help other clients choose the right experts.</p>
+
+<p><a class="btn" style="color: #ffffff;" href="http://<%= @tenant.domain.presence || "#{@tenant.ident}.experthub.localhost" %>/dashboard">Leave a Review</a></p>
+
+<p>Thanks for booking with us!</p>

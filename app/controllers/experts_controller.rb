@@ -91,6 +91,6 @@ class ExpertsController < ApplicationController
   end
 
   def expert_profile_params
-    params.permit(:bio, :specialization, :title, :default_slot_duration, :timezone_offset, :is_on_duty)
+    params.permit(:bio, :specialization, :title, :default_slot_duration, :timezone_offset, :is_on_duty, :intro_video_url, press_links: [:name, :url], credentials: [:name, :details])
   end
 end

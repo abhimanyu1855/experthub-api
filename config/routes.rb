@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       post :cancel
       patch :transcript, to: 'bookings#update_transcript'
       post :transcript, to: 'bookings#update_transcript'
+      post :marketing_post
       post :reschedule_requests, to: 'reschedule_requests#create'
     end
   end

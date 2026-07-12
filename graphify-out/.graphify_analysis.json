@@ -1,0 +1,1384 @@
+{
+  "communities": {
+    "0": [
+      "app_controllers_conversations_controller",
+      "app_controllers_conversations_controller_conversationscontroller",
+      "app_controllers_conversations_controller_conversationscontroller_create",
+      "app_controllers_conversations_controller_conversationscontroller_index",
+      "app_controllers_referrals_controller",
+      "app_controllers_referrals_controller_referralscontroller",
+      "app_controllers_referrals_controller_referralscontroller_summary",
+      "app_controllers_reviews_controller",
+      "app_controllers_reviews_controller_reviewscontroller",
+      "app_controllers_reviews_controller_reviewscontroller_create",
+      "app_controllers_reviews_controller_reviewscontroller_index",
+      "app_controllers_reviews_controller_reviewscontroller_review_params",
+      "app_controllers_users_sessions_controller",
+      "app_controllers_users_sessions_controller_users_sessionscontroller",
+      "app_controllers_users_sessions_controller_users_sessionscontroller_current_user_user",
+      "app_controllers_users_sessions_controller_users_sessionscontroller_respond_to_on_destroy",
+      "app_controllers_users_sessions_controller_users_sessionscontroller_respond_with",
+      "app_models_conversation",
+      "app_models_conversation_conversation",
+      "app_models_conversation_conversation_between",
+      "app_models_review",
+      "app_models_review_review",
+      "app_models_review_review_update_expert_rating",
+      "app_models_user",
+      "app_models_user_user",
+      "app_models_user_user_client_in",
+      "app_models_user_user_displayed_name",
+      "app_models_user_user_expert_in",
+      "app_models_user_user_generate_referral_code",
+      "app_models_user_user_has_avatar",
+      "app_models_user_user_jwt_payload",
+      "app_models_user_user_operator_of",
+      "app_models_user_user_role_in",
+      "db_seeds_demo",
+      "db_seeds_demo_find_or_create_demo_user",
+      "sessionscontroller"
+    ],
+    "1": [
+      "app_blueprints_expert_profile_blueprint",
+      "app_blueprints_expert_profile_blueprint_expertprofileblueprint",
+      "app_blueprints_expert_profile_blueprint_rb_base",
+      "app_blueprints_user_blueprint",
+      "app_blueprints_user_blueprint_rb_base",
+      "app_blueprints_user_blueprint_userblueprint",
+      "app_controllers_experts_controller",
+      "app_controllers_experts_controller_expertscontroller",
+      "app_controllers_experts_controller_expertscontroller_current_expert_profile",
+      "app_controllers_experts_controller_expertscontroller_default_stripe_onboarding_url",
+      "app_controllers_experts_controller_expertscontroller_expert_profile_params",
+      "app_controllers_experts_controller_expertscontroller_index",
+      "app_controllers_experts_controller_expertscontroller_show",
+      "app_controllers_experts_controller_expertscontroller_stripe_account",
+      "app_controllers_experts_controller_expertscontroller_stripe_onboarding_link",
+      "app_controllers_experts_controller_expertscontroller_update_profile",
+      "app_controllers_users_controller",
+      "app_controllers_users_controller_userscontroller",
+      "app_controllers_users_controller_userscontroller_expert_profile_params",
+      "app_controllers_users_controller_userscontroller_me",
+      "app_controllers_users_controller_userscontroller_update",
+      "app_controllers_users_controller_userscontroller_user_params",
+      "app_services_stripe_service",
+      "app_services_stripe_service_rb_standarderror",
+      "app_services_stripe_service_stripeerror",
+      "app_services_stripe_service_stripeservice",
+      "app_services_stripe_service_stripeservice_create_account_link",
+      "app_services_stripe_service_stripeservice_create_express_account",
+      "app_services_stripe_service_stripeservice_create_payment_intent",
+      "app_services_stripe_service_stripeservice_handle_payment_failed",
+      "app_services_stripe_service_stripeservice_handle_payment_succeeded",
+      "app_services_stripe_service_stripeservice_handle_webhook",
+      "app_services_stripe_service_stripeservice_refund_booking",
+      "app_services_stripe_service_stripeservice_secret_key_for",
+      "app_services_stripe_service_stripeservice_transfer_to_expert"
+    ],
+    "2": [
+      "app_controllers_admin_expert_applications_controller",
+      "app_controllers_admin_expert_applications_controller_admin_expertapplicationscontroller",
+      "app_controllers_admin_expert_applications_controller_admin_expertapplicationscontroller_approve",
+      "app_controllers_admin_expert_applications_controller_admin_expertapplicationscontroller_index",
+      "app_controllers_admin_expert_applications_controller_admin_expertapplicationscontroller_reject",
+      "app_controllers_ai_match_controller",
+      "app_controllers_ai_match_controller_ai",
+      "app_controllers_ai_match_controller_matchcontroller",
+      "app_controllers_ai_match_controller_matchcontroller_match",
+      "app_jobs_generate_embedding_job",
+      "app_jobs_generate_embedding_job_generateembeddingjob",
+      "app_jobs_generate_embedding_job_generateembeddingjob_fetch_openai_embedding",
+      "app_jobs_generate_embedding_job_generateembeddingjob_perform",
+      "app_mailers_application_mailer",
+      "app_mailers_application_mailer_applicationmailer",
+      "app_mailers_application_mailer_rb_base",
+      "app_mailers_expert_mailer",
+      "app_mailers_expert_mailer_expertmailer",
+      "app_mailers_expert_mailer_expertmailer_application_approved",
+      "app_mailers_expert_mailer_expertmailer_application_rejected",
+      "app_models_expert_embedding",
+      "app_models_expert_embedding_expertembedding",
+      "app_models_expert_profile",
+      "app_models_expert_profile_expertprofile",
+      "app_models_expert_profile_expertprofile_active_payout_account",
+      "app_models_expert_profile_expertprofile_any_payout_account",
+      "app_models_expert_profile_expertprofile_generate_embedding_async",
+      "app_models_expert_profile_expertprofile_payout_connected",
+      "app_models_expert_profile_expertprofile_payout_onboarding_started",
+      "app_models_expert_profile_expertprofile_payout_status",
+      "app_services_ai_match_experts_service",
+      "app_services_ai_match_experts_service_ai",
+      "app_services_ai_match_experts_service_fetch_query_embedding",
+      "app_services_ai_match_experts_service_matchexpertsservice",
+      "app_services_ai_match_experts_service_matchexpertsservice_match"
+    ],
+    "3": [
+      "app_blueprints_booking_blueprint",
+      "app_blueprints_booking_blueprint_bookingblueprint",
+      "app_blueprints_booking_blueprint_rb_base",
+      "app_controllers_bookings_controller",
+      "app_controllers_bookings_controller_bookingscontroller",
+      "app_controllers_bookings_controller_bookingscontroller_authorize_booking_access",
+      "app_controllers_bookings_controller_bookingscontroller_booking_params",
+      "app_controllers_bookings_controller_bookingscontroller_cancel",
+      "app_controllers_bookings_controller_bookingscontroller_cancellation_policy_for",
+      "app_controllers_bookings_controller_bookingscontroller_cancellation_refund_amount_cents",
+      "app_controllers_bookings_controller_bookingscontroller_create",
+      "app_controllers_bookings_controller_bookingscontroller_generate_summary_if_ready",
+      "app_controllers_bookings_controller_bookingscontroller_index",
+      "app_controllers_bookings_controller_bookingscontroller_paid_booking",
+      "app_controllers_bookings_controller_bookingscontroller_payment_gateway_for",
+      "app_controllers_bookings_controller_bookingscontroller_payment_payload_for",
+      "app_controllers_bookings_controller_bookingscontroller_process_cancellation_refund",
+      "app_controllers_bookings_controller_bookingscontroller_record_refund_metadata",
+      "app_controllers_bookings_controller_bookingscontroller_show",
+      "app_controllers_bookings_controller_bookingscontroller_transcript_params",
+      "app_controllers_bookings_controller_bookingscontroller_update_transcript",
+      "app_controllers_bookings_controller_bookingscontroller_use_razorpay_for",
+      "app_controllers_bookings_controller_bookingscontroller_valid_transcript_source",
+      "app_jobs_booking_ended_job",
+      "app_jobs_booking_ended_job_bookingendedjob",
+      "app_jobs_booking_ended_job_bookingendedjob_perform",
+      "app_models_session_summary",
+      "app_models_session_summary_sessionsummary",
+      "app_services_ai_generate_summary_service",
+      "app_services_ai_generate_summary_service_ai",
+      "app_services_ai_generate_summary_service_extract_action_items",
+      "app_services_ai_generate_summary_service_fetch_summary_and_action_items",
+      "app_services_ai_generate_summary_service_generatesummaryservice",
+      "app_services_ai_generate_summary_service_generatesummaryservice_summarize"
+    ],
+    "4": [
+      "app_channels_application_cable_connection",
+      "app_channels_application_cable_connection_applicationcable",
+      "app_channels_application_cable_connection_connection",
+      "app_channels_application_cable_connection_connection_connect",
+      "app_channels_application_cable_connection_connection_extract_subdomain",
+      "app_channels_application_cable_connection_connection_find_verified_tenant",
+      "app_channels_application_cable_connection_connection_find_verified_user",
+      "app_channels_application_cable_connection_rb_base",
+      "app_controllers_application_controller_applicationcontroller_resolve_tenant",
+      "app_controllers_billing_controller",
+      "app_controllers_billing_controller_billingcontroller",
+      "app_controllers_billing_controller_billingcontroller_checkout",
+      "app_controllers_billing_controller_billingcontroller_webhook",
+      "app_models_concerns_plan_features",
+      "app_models_concerns_plan_features_planfeatures",
+      "app_models_concerns_plan_features_planfeatures_feature_allowed",
+      "app_models_concerns_plan_features_planfeatures_plan_features",
+      "app_models_concerns_plan_features_planfeatures_within_expert_limit",
+      "app_models_tenant",
+      "app_models_tenant_tenant",
+      "app_models_tenant_tenant_auto_confirm_bookings",
+      "app_models_tenant_tenant_booking_buffer_minutes",
+      "app_models_tenant_tenant_commission_rate_for",
+      "app_models_tenant_tenant_feature_enabled",
+      "app_models_tenant_tenant_ident_not_reserved",
+      "app_models_tenant_tenant_require_expert_approval",
+      "app_models_tenant_tenant_setting",
+      "app_models_tenant_tenant_trial_active",
+      "app_services_platform_billing_service",
+      "app_services_platform_billing_service_platformbillingservice",
+      "app_services_platform_billing_service_platformbillingservice_create_checkout_session",
+      "app_services_platform_billing_service_platformbillingservice_handle_checkout_completed",
+      "app_services_platform_billing_service_platformbillingservice_handle_subscription_deleted"
+    ],
+    "5": [
+      "app_controllers_application_controller_applicationcontroller_require_operator",
+      "app_controllers_tenants_controller",
+      "app_controllers_tenants_controller_tenantscontroller",
+      "app_controllers_tenants_controller_tenantscontroller_admin_params",
+      "app_controllers_tenants_controller_tenantscontroller_create",
+      "app_controllers_tenants_controller_tenantscontroller_show",
+      "app_controllers_tenants_controller_tenantscontroller_tenant_params",
+      "app_controllers_tenants_controller_tenantscontroller_tenant_update_params",
+      "app_controllers_tenants_controller_tenantscontroller_update",
+      "app_controllers_users_registrations_controller",
+      "app_controllers_users_registrations_controller_users_registrationscontroller",
+      "app_controllers_users_registrations_controller_users_registrationscontroller_create",
+      "app_controllers_users_registrations_controller_users_registrationscontroller_respond_with",
+      "app_controllers_users_registrations_controller_users_registrationscontroller_sign_up_params",
+      "app_models_membership",
+      "app_models_membership_membership",
+      "app_services_tenant_setup_service",
+      "app_services_tenant_setup_service_tenantsetupservice",
+      "app_services_tenant_setup_service_tenantsetupservice_call",
+      "app_services_tenant_setup_service_tenantsetupservice_create",
+      "app_services_tenant_setup_service_tenantsetupservice_create_default_category",
+      "app_services_tenant_setup_service_tenantsetupservice_create_operator_membership",
+      "app_services_tenant_setup_service_tenantsetupservice_create_tenant",
+      "app_services_tenant_setup_service_tenantsetupservice_default_feature_flags",
+      "app_services_tenant_setup_service_tenantsetupservice_default_settings",
+      "app_services_tenant_setup_service_tenantsetupservice_initialize",
+      "registrationscontroller"
+    ],
+    "6": [
+      "app_models_application_record",
+      "app_models_application_record_applicationrecord",
+      "app_models_application_record_rb_base",
+      "app_models_blocked_date",
+      "app_models_blocked_date_blockeddate",
+      "app_models_booking_package",
+      "app_models_booking_package_bookingpackage",
+      "app_models_checkout_field",
+      "app_models_checkout_field_checkoutfield",
+      "app_models_checkout_field_value",
+      "app_models_checkout_field_value_checkoutfieldvalue",
+      "app_models_expert_application",
+      "app_models_expert_application_expertapplication",
+      "app_models_lesson_quiz",
+      "app_models_lesson_quiz_lessonquiz",
+      "app_models_payment_config",
+      "app_models_payment_config_paymentconfig",
+      "app_models_payment_record",
+      "app_models_payment_record_paymentrecord",
+      "app_models_payout_account",
+      "app_models_payout_account_payoutaccount",
+      "app_models_quiz_option",
+      "app_models_quiz_option_quizoption",
+      "app_models_video_room",
+      "app_models_video_room_videoroom"
+    ],
+    "7": [
+      "app_channels_application_cable_channel",
+      "app_channels_application_cable_channel_applicationcable",
+      "app_channels_application_cable_channel_channel",
+      "app_channels_application_cable_channel_rb_base",
+      "app_channels_conversation_channel",
+      "app_channels_conversation_channel_conversationchannel",
+      "app_channels_conversation_channel_conversationchannel_find_conversation",
+      "app_channels_conversation_channel_conversationchannel_subscribed",
+      "app_channels_conversation_channel_conversationchannel_unsubscribed",
+      "app_channels_notification_channel",
+      "app_channels_notification_channel_notificationchannel",
+      "app_channels_notification_channel_notificationchannel_subscribed",
+      "app_channels_notification_channel_notificationchannel_unsubscribed",
+      "app_models_message",
+      "app_models_message_message",
+      "app_models_message_message_broadcast_to_participants",
+      "app_models_message_message_notify_recipient",
+      "app_models_notification",
+      "app_models_notification_notification",
+      "app_models_notification_notification_broadcast_to_user",
+      "app_models_notification_notification_mark_as_read"
+    ],
+    "8": [
+      "api",
+      "app_controllers_application_controller",
+      "app_controllers_application_controller_applicationcontroller",
+      "app_controllers_application_controller_applicationcontroller_check_plan_access",
+      "app_controllers_application_controller_applicationcontroller_current_membership",
+      "app_controllers_application_controller_applicationcontroller_current_tenant",
+      "app_controllers_application_controller_applicationcontroller_extract_locale_from_header",
+      "app_controllers_application_controller_applicationcontroller_extract_subdomain",
+      "app_controllers_application_controller_applicationcontroller_forbidden",
+      "app_controllers_application_controller_applicationcontroller_not_found",
+      "app_controllers_application_controller_applicationcontroller_require_feature",
+      "app_controllers_application_controller_applicationcontroller_set_current_tenant",
+      "app_controllers_application_controller_applicationcontroller_set_locale",
+      "app_controllers_application_controller_applicationcontroller_tenant_required",
+      "app_controllers_application_controller_applicationcontroller_unprocessable_entity",
+      "app_models_current",
+      "app_models_current_current",
+      "app_models_current_current_tenant",
+      "currentattributes"
+    ],
+    "9": [
+      "app_controllers_webhooks_controller",
+      "app_controllers_webhooks_controller_webhookscontroller",
+      "app_controllers_webhooks_controller_webhookscontroller_payfast",
+      "app_controllers_webhooks_controller_webhookscontroller_paypal",
+      "app_controllers_webhooks_controller_webhookscontroller_razorpay",
+      "app_controllers_webhooks_controller_webhookscontroller_stripe",
+      "app_services_webhook_service",
+      "app_services_webhook_service_rb_standarderror",
+      "app_services_webhook_service_webhookerror",
+      "app_services_webhook_service_webhookservice",
+      "app_services_webhook_service_webhookservice_event_already_processed",
+      "app_services_webhook_service_webhookservice_mark_event_as_processed",
+      "app_services_webhook_service_webhookservice_process_payfast_webhook",
+      "app_services_webhook_service_webhookservice_process_paypal_webhook",
+      "app_services_webhook_service_webhookservice_process_razorpay_webhook",
+      "app_services_webhook_service_webhookservice_process_stripe_webhook"
+    ],
+    "10": [
+      "app_controllers_reschedule_requests_controller",
+      "app_controllers_reschedule_requests_controller_reschedulerequestscontroller",
+      "app_controllers_reschedule_requests_controller_reschedulerequestscontroller_accept",
+      "app_controllers_reschedule_requests_controller_reschedulerequestscontroller_create",
+      "app_controllers_reschedule_requests_controller_reschedulerequestscontroller_reject",
+      "app_controllers_reschedule_requests_controller_reschedulerequestscontroller_reschedule_params",
+      "app_models_reschedule_request",
+      "app_models_reschedule_request_reschedulerequest",
+      "app_models_reschedule_request_reschedulerequest_accept",
+      "app_models_reschedule_request_reschedulerequest_booking_is_reschedulable",
+      "app_models_reschedule_request_reschedulerequest_end_time_after_start_time",
+      "app_models_reschedule_request_reschedulerequest_new_start_time_in_future",
+      "app_models_reschedule_request_reschedulerequest_no_overlapping_bookings",
+      "app_models_reschedule_request_reschedulerequest_pending",
+      "app_models_reschedule_request_reschedulerequest_reject"
+    ],
+    "11": [
+      "app_controllers_availability_controller",
+      "app_controllers_availability_controller_availabilitycontroller",
+      "app_controllers_availability_controller_availabilitycontroller_index",
+      "app_services_availability_service",
+      "app_services_availability_service_availabilityservice",
+      "app_services_availability_service_availabilityservice_available_slots",
+      "app_services_availability_service_availabilityservice_blocked_date",
+      "app_services_availability_service_availabilityservice_booked_slots_for_date",
+      "app_services_availability_service_availabilityservice_call",
+      "app_services_availability_service_availabilityservice_generate_time_slots",
+      "app_services_availability_service_availabilityservice_initialize",
+      "app_services_availability_service_availabilityservice_parse_time",
+      "app_services_availability_service_availabilityservice_slot_available",
+      "app_services_availability_service_availabilityservice_working_hours_for_day"
+    ],
+    "12": [
+      "app_models_referral_credit",
+      "app_models_referral_credit_referralcredit",
+      "app_models_referral_credit_referralcredit_redeem",
+      "app_services_booking_service_bookingservice_payment_succeeded",
+      "app_services_payfast_service",
+      "app_services_payfast_service_payfasterror",
+      "app_services_payfast_service_payfastservice",
+      "app_services_payfast_service_payfastservice_handle_webhook",
+      "app_services_payfast_service_rb_standarderror",
+      "app_services_referral_service",
+      "app_services_referral_service_referralservice",
+      "app_services_referral_service_referralservice_apply_credits",
+      "app_services_referral_service_referralservice_check_and_reward",
+      "app_services_referral_service_referralservice_redeem_credits"
+    ],
+    "13": [
+      "app_controllers_ai_triage_controller",
+      "app_controllers_ai_triage_controller_ai",
+      "app_controllers_ai_triage_controller_triagecontroller",
+      "app_controllers_ai_triage_controller_triagecontroller_chat",
+      "app_controllers_ai_triage_controller_triagecontroller_create",
+      "app_models_ai_triage_session",
+      "app_models_ai_triage_session_aitriagesession",
+      "app_services_ai_triage_chat_service",
+      "app_services_ai_triage_chat_service_ai",
+      "app_services_ai_triage_chat_service_extract_recommendations",
+      "app_services_ai_triage_chat_service_get_chatbot_reply",
+      "app_services_ai_triage_chat_service_triagechatservice",
+      "app_services_ai_triage_chat_service_triagechatservice_send_message"
+    ],
+    "14": [
+      "app_jobs_booking_started_job",
+      "app_jobs_booking_started_job_bookingstartedjob",
+      "app_jobs_booking_started_job_bookingstartedjob_perform",
+      "app_models_booking",
+      "app_models_booking_booking",
+      "app_models_booking_booking_after_confirmation",
+      "app_models_booking_booking_after_payment",
+      "app_models_booking_booking_client_total_cents",
+      "app_models_booking_booking_end_time_after_start_time",
+      "app_models_booking_booking_no_overlapping_bookings",
+      "app_models_booking_booking_video_room_id",
+      "app_models_booking_booking_video_room_provider",
+      "app_models_booking_booking_video_room_url"
+    ],
+    "15": [
+      "app_policies_application_policy",
+      "app_policies_application_policy_applicationpolicy",
+      "app_policies_application_policy_applicationpolicy_create",
+      "app_policies_application_policy_applicationpolicy_destroy",
+      "app_policies_application_policy_applicationpolicy_edit",
+      "app_policies_application_policy_applicationpolicy_index",
+      "app_policies_application_policy_applicationpolicy_initialize",
+      "app_policies_application_policy_applicationpolicy_new",
+      "app_policies_application_policy_applicationpolicy_show",
+      "app_policies_application_policy_applicationpolicy_update",
+      "app_policies_application_policy_scope",
+      "app_policies_application_policy_scope_initialize",
+      "app_policies_application_policy_scope_resolve"
+    ],
+    "16": [
+      "app_jobs_application_job",
+      "app_jobs_application_job_applicationjob",
+      "app_jobs_application_job_rb_base",
+      "app_jobs_new_booking_notification_job",
+      "app_jobs_new_booking_notification_job_newbookingnotificationjob",
+      "app_jobs_send_booking_receipt_job",
+      "app_jobs_send_booking_receipt_job_sendbookingreceiptjob",
+      "app_jobs_send_webhook_job",
+      "app_jobs_send_webhook_job_sendwebhookjob",
+      "app_jobs_send_webhook_job_sendwebhookjob_perform",
+      "app_services_booking_service_enqueue_free_booking_jobs",
+      "app_services_booking_service_enqueue_paid_booking_jobs"
+    ],
+    "17": [
+      "app_jobs_confirm_booking_job",
+      "app_jobs_confirm_booking_job_confirmbookingjob",
+      "app_jobs_confirm_booking_job_confirmbookingjob_perform",
+      "app_services_booking_service",
+      "app_services_booking_service_bookingerror",
+      "app_services_booking_service_bookingservice",
+      "app_services_booking_service_bookingservice_auto_confirm",
+      "app_services_booking_service_bookingservice_create",
+      "app_services_booking_service_paymentfailed",
+      "app_services_booking_service_rb_standarderror",
+      "app_services_booking_service_slot_available",
+      "app_services_booking_service_slotunavailable"
+    ],
+    "18": [
+      "app_models_course",
+      "app_models_course_course",
+      "app_models_course_course_enrollments_count",
+      "app_models_course_course_free",
+      "app_models_service",
+      "app_models_service_service",
+      "app_models_service_service_free",
+      "app_models_service_service_price_display",
+      "app_models_working_time_slot",
+      "app_models_working_time_slot_workingtimeslot",
+      "db_seeds",
+      "db_seeds_seed_tenant"
+    ],
+    "19": [
+      "app_controllers_bookings_controller_bookingscontroller_confirm",
+      "app_jobs_create_video_room_job",
+      "app_jobs_create_video_room_job_createvideoroomjob",
+      "app_jobs_create_video_room_job_createvideoroomjob_perform",
+      "app_services_daily_service",
+      "app_services_daily_service_dailyerror",
+      "app_services_daily_service_dailyservice",
+      "app_services_daily_service_dailyservice_connection",
+      "app_services_daily_service_dailyservice_create_room",
+      "app_services_daily_service_dailyservice_delete_room",
+      "app_services_daily_service_rb_standarderror"
+    ],
+    "20": [
+      "app_blueprints_category_blueprint",
+      "app_blueprints_category_blueprint_categoryblueprint",
+      "app_blueprints_category_blueprint_rb_base",
+      "app_controllers_categories_controller",
+      "app_controllers_categories_controller_categoriescontroller",
+      "app_controllers_categories_controller_categoriescontroller_category_params",
+      "app_controllers_categories_controller_categoriescontroller_create",
+      "app_controllers_categories_controller_categoriescontroller_destroy",
+      "app_controllers_categories_controller_categoriescontroller_index",
+      "app_controllers_categories_controller_categoriescontroller_update"
+    ],
+    "21": [
+      "app_blueprints_service_blueprint",
+      "app_blueprints_service_blueprint_rb_base",
+      "app_blueprints_service_blueprint_serviceblueprint",
+      "app_controllers_services_controller",
+      "app_controllers_services_controller_servicescontroller",
+      "app_controllers_services_controller_servicescontroller_create",
+      "app_controllers_services_controller_servicescontroller_destroy",
+      "app_controllers_services_controller_servicescontroller_service_params",
+      "app_controllers_services_controller_servicescontroller_show",
+      "app_controllers_services_controller_servicescontroller_update"
+    ],
+    "22": [
+      "app_jobs_booking_reminder_job",
+      "app_jobs_booking_reminder_job_bookingreminderjob",
+      "app_jobs_booking_reminder_job_bookingreminderjob_perform",
+      "app_jobs_new_booking_notification_job_newbookingnotificationjob_perform",
+      "app_jobs_send_booking_receipt_job_sendbookingreceiptjob_perform",
+      "app_mailers_booking_mailer",
+      "app_mailers_booking_mailer_bookingmailer",
+      "app_mailers_booking_mailer_bookingmailer_new_booking_alert",
+      "app_mailers_booking_mailer_bookingmailer_payment_receipt",
+      "app_mailers_booking_mailer_bookingmailer_session_reminder"
+    ],
+    "23": [
+      "app_services_razorpay_service",
+      "app_services_razorpay_service_handle_payment_captured",
+      "app_services_razorpay_service_handle_payment_failed",
+      "app_services_razorpay_service_razorpayerror",
+      "app_services_razorpay_service_razorpayservice",
+      "app_services_razorpay_service_razorpayservice_create_order",
+      "app_services_razorpay_service_razorpayservice_handle_webhook",
+      "app_services_razorpay_service_razorpayservice_transfer_to_expert",
+      "app_services_razorpay_service_rb_standarderror",
+      "app_services_razorpay_service_verify_signature"
+    ],
+    "24": [
+      "app_controllers_lessons_controller",
+      "app_controllers_lessons_controller_lessonscontroller",
+      "app_controllers_lessons_controller_lessonscontroller_complete",
+      "app_controllers_lessons_controller_lessonscontroller_create",
+      "app_controllers_lessons_controller_lessonscontroller_lesson_params",
+      "app_controllers_lessons_controller_lessonscontroller_quiz",
+      "app_controllers_lessons_controller_lessonscontroller_submit_quiz",
+      "app_models_lesson",
+      "app_models_lesson_lesson"
+    ],
+    "25": [
+      "app_models_category",
+      "app_models_category_category",
+      "app_models_category_category_generate_slug",
+      "app_models_concerns_localizable",
+      "app_models_concerns_localizable_localizable",
+      "app_models_concerns_localizable_localizable_attributes",
+      "app_models_page",
+      "app_models_page_page"
+    ],
+    "26": [
+      "app_controllers_courses_controller",
+      "app_controllers_courses_controller_coursescontroller",
+      "app_controllers_courses_controller_coursescontroller_course_params",
+      "app_controllers_courses_controller_coursescontroller_create",
+      "app_controllers_courses_controller_coursescontroller_enroll",
+      "app_controllers_courses_controller_coursescontroller_show",
+      "app_controllers_courses_controller_coursescontroller_update"
+    ],
+    "27": [
+      "app_controllers_promo_codes_controller",
+      "app_controllers_promo_codes_controller_promocodescontroller",
+      "app_controllers_promo_codes_controller_promocodescontroller_create",
+      "app_controllers_promo_codes_controller_promocodescontroller_destroy",
+      "app_controllers_promo_codes_controller_promocodescontroller_index",
+      "app_controllers_promo_codes_controller_promocodescontroller_promo_code_params",
+      "app_controllers_promo_codes_controller_promocodescontroller_validate"
+    ],
+    "28": [
+      "app_models_promo_code",
+      "app_models_promo_code_promocode",
+      "app_models_promo_code_promocode_calculate_discount",
+      "app_models_promo_code_promocode_expired",
+      "app_models_promo_code_promocode_increment_redemptions",
+      "app_models_promo_code_promocode_max_redemptions_reached",
+      "app_models_promo_code_promocode_valid_for_use"
+    ],
+    "29": [
+      "app_controllers_booking_packages_controller",
+      "app_controllers_booking_packages_controller_bookingpackagescontroller",
+      "app_controllers_booking_packages_controller_bookingpackagescontroller_create",
+      "app_controllers_booking_packages_controller_bookingpackagescontroller_index",
+      "app_controllers_booking_packages_controller_bookingpackagescontroller_package_params",
+      "app_controllers_booking_packages_controller_bookingpackagescontroller_purchase"
+    ],
+    "30": [
+      "app_controllers_cancellation_policies_controller",
+      "app_controllers_cancellation_policies_controller_cancellationpoliciescontroller",
+      "app_controllers_cancellation_policies_controller_cancellationpoliciescontroller_create",
+      "app_controllers_cancellation_policies_controller_cancellationpoliciescontroller_policy_params",
+      "app_controllers_cancellation_policies_controller_cancellationpoliciescontroller_show",
+      "app_controllers_cancellation_policies_controller_cancellationpoliciescontroller_update"
+    ],
+    "31": [
+      "app_controllers_checkout_fields_controller",
+      "app_controllers_checkout_fields_controller_checkoutfieldscontroller",
+      "app_controllers_checkout_fields_controller_checkoutfieldscontroller_create",
+      "app_controllers_checkout_fields_controller_checkoutfieldscontroller_destroy",
+      "app_controllers_checkout_fields_controller_checkoutfieldscontroller_field_params",
+      "app_controllers_checkout_fields_controller_checkoutfieldscontroller_index"
+    ],
+    "32": [
+      "app_controllers_group_sessions_controller",
+      "app_controllers_group_sessions_controller_groupsessionscontroller",
+      "app_controllers_group_sessions_controller_groupsessionscontroller_create",
+      "app_controllers_group_sessions_controller_groupsessionscontroller_group_session_params",
+      "app_controllers_group_sessions_controller_groupsessionscontroller_register",
+      "app_controllers_group_sessions_controller_groupsessionscontroller_show"
+    ],
+    "33": [
+      "app_controllers_messages_controller",
+      "app_controllers_messages_controller_messagescontroller",
+      "app_controllers_messages_controller_messagescontroller_create",
+      "app_controllers_messages_controller_messagescontroller_index",
+      "app_controllers_messages_controller_messagescontroller_message_params",
+      "app_controllers_messages_controller_messagescontroller_set_conversation"
+    ],
+    "34": [
+      "app_controllers_subscription_plans_controller",
+      "app_controllers_subscription_plans_controller_subscriptionplanscontroller",
+      "app_controllers_subscription_plans_controller_subscriptionplanscontroller_create",
+      "app_controllers_subscription_plans_controller_subscriptionplanscontroller_index",
+      "app_controllers_subscription_plans_controller_subscriptionplanscontroller_plan_params",
+      "app_controllers_subscription_plans_controller_subscriptionplanscontroller_update"
+    ],
+    "35": [
+      "app_controllers_application_controller_applicationcontroller_require_expert",
+      "app_controllers_application_controller_applicationcontroller_require_tenant_membership",
+      "app_controllers_courses_controller_coursescontroller_index",
+      "app_controllers_group_sessions_controller_groupsessionscontroller_index",
+      "app_controllers_services_controller_servicescontroller_index"
+    ],
+    "36": [
+      "app_controllers_notifications_controller",
+      "app_controllers_notifications_controller_notificationscontroller",
+      "app_controllers_notifications_controller_notificationscontroller_index",
+      "app_controllers_notifications_controller_notificationscontroller_read",
+      "app_controllers_notifications_controller_notificationscontroller_unread_count"
+    ],
+    "37": [
+      "app_controllers_payment_configs_controller",
+      "app_controllers_payment_configs_controller_paymentconfigscontroller",
+      "app_controllers_payment_configs_controller_paymentconfigscontroller_create",
+      "app_controllers_payment_configs_controller_paymentconfigscontroller_index",
+      "app_controllers_payment_configs_controller_paymentconfigscontroller_payment_config_params"
+    ],
+    "38": [
+      "app_controllers_subscriptions_controller",
+      "app_controllers_subscriptions_controller_subscriptionscontroller",
+      "app_controllers_subscriptions_controller_subscriptionscontroller_cancel",
+      "app_controllers_subscriptions_controller_subscriptionscontroller_create",
+      "app_controllers_subscriptions_controller_subscriptionscontroller_index"
+    ],
+    "39": [
+      "app_controllers_working_time_slots_controller",
+      "app_controllers_working_time_slots_controller_workingtimeslotscontroller",
+      "app_controllers_working_time_slots_controller_workingtimeslotscontroller_create",
+      "app_controllers_working_time_slots_controller_workingtimeslotscontroller_destroy",
+      "app_controllers_working_time_slots_controller_workingtimeslotscontroller_index"
+    ],
+    "40": [
+      "app_models_group_session",
+      "app_models_group_session_groupsession",
+      "app_models_group_session_groupsession_end_time_after_start_time",
+      "app_models_group_session_groupsession_full",
+      "app_models_group_session_groupsession_registered_count"
+    ],
+    "41": [
+      "app_services_paypal_service",
+      "app_services_paypal_service_paypalerror",
+      "app_services_paypal_service_paypalservice",
+      "app_services_paypal_service_paypalservice_handle_webhook",
+      "app_services_paypal_service_rb_standarderror"
+    ],
+    "42": [
+      "deploy_build_frontend",
+      "deploy_build_frontend_sh__entry",
+      "deploy_build_frontend_vite_api_url",
+      "deploy_build_frontend_vite_app_domain",
+      "deploy_build_frontend_vite_cable_url"
+    ],
+    "43": [
+      "app_controllers_admin_onboarding_status_controller",
+      "app_controllers_admin_onboarding_status_controller_admin_onboardingstatuscontroller",
+      "app_controllers_admin_onboarding_status_controller_admin_onboardingstatuscontroller_show",
+      "app_controllers_admin_onboarding_status_controller_admin_onboardingstatuscontroller_update"
+    ],
+    "44": [
+      "app_controllers_admin_users_controller",
+      "app_controllers_admin_users_controller_admin_userscontroller",
+      "app_controllers_admin_users_controller_admin_userscontroller_index",
+      "app_controllers_admin_users_controller_admin_userscontroller_update"
+    ],
+    "45": [
+      "app_controllers_analytics_controller",
+      "app_controllers_analytics_controller_analyticscontroller",
+      "app_controllers_analytics_controller_analyticscontroller_dashboard",
+      "app_controllers_analytics_controller_analyticscontroller_expert"
+    ],
+    "46": [
+      "app_models_booking_booking_calculate_commission",
+      "app_services_commission_calculator",
+      "app_services_commission_calculator_commissioncalculator",
+      "app_services_commission_calculator_commissioncalculator_calculate"
+    ],
+    "47": [
+      "app_models_enrollment",
+      "app_models_enrollment_enrollment",
+      "app_models_enrollment_enrollment_check_completion",
+      "app_models_enrollment_enrollment_issue_certificate"
+    ],
+    "48": [
+      "app_models_subscription",
+      "app_models_subscription_subscription",
+      "app_models_subscription_subscription_active",
+      "app_models_subscription_subscription_cancel"
+    ],
+    "49": [
+      "db_migrate_20260607000001_enable_pgvector",
+      "db_migrate_20260607000001_enable_pgvector_enablepgvector",
+      "db_migrate_20260607000001_enable_pgvector_enablepgvector_down",
+      "db_migrate_20260607000001_enable_pgvector_enablepgvector_up"
+    ],
+    "50": [
+      "db_migrate_20260607051821_create_active_storage_tables_active_storage",
+      "db_migrate_20260607051821_create_active_storage_tables_active_storage_createactivestoragetables",
+      "db_migrate_20260607051821_create_active_storage_tables_active_storage_createactivestoragetables_change",
+      "db_migrate_20260607051821_create_active_storage_tables_active_storage_createactivestoragetables_primary_and_foreign_key_types"
+    ],
+    "51": [
+      "db_migrate_20260611000002_encrypt_message_content",
+      "db_migrate_20260611000002_encrypt_message_content_encryptmessagecontent",
+      "db_migrate_20260611000002_encrypt_message_content_encryptmessagecontent_down",
+      "db_migrate_20260611000002_encrypt_message_content_encryptmessagecontent_up"
+    ],
+    "52": [
+      "app_blueprints_simple_user_blueprint",
+      "app_blueprints_simple_user_blueprint_rb_base",
+      "app_blueprints_simple_user_blueprint_simpleuserblueprint"
+    ],
+    "53": [
+      "app_controllers_expert_applications_controller",
+      "app_controllers_expert_applications_controller_expertapplicationscontroller",
+      "app_controllers_expert_applications_controller_expertapplicationscontroller_create"
+    ],
+    "54": [
+      "app_controllers_pages_controller",
+      "app_controllers_pages_controller_pagescontroller",
+      "app_controllers_pages_controller_pagescontroller_show"
+    ],
+    "55": [
+      "app_models_booking_transition",
+      "app_models_booking_transition_bookingtransition",
+      "app_models_booking_transition_bookingtransition_assign_sort_key"
+    ],
+    "56": [
+      "app_models_lesson_progress",
+      "app_models_lesson_progress_lessonprogress",
+      "app_models_lesson_progress_lessonprogress_check_course_completion"
+    ],
+    "57": [
+      "app_models_package_purchase",
+      "app_models_package_purchase_packagepurchase",
+      "app_models_package_purchase_packagepurchase_use_booking"
+    ],
+    "58": [
+      "app_models_promo_redemption",
+      "app_models_promo_redemption_promoredemption",
+      "app_models_promo_redemption_promoredemption_increment_promo_code_redemptions"
+    ],
+    "59": [
+      "app_models_session_attendance",
+      "app_models_session_attendance_sessionattendance",
+      "app_models_session_attendance_sessionattendance_session_not_full"
+    ],
+    "60": [
+      "app_models_subscription_plan",
+      "app_models_subscription_plan_subscriptionplan",
+      "app_models_subscription_plan_subscriptionplan_active_subscribers_count"
+    ],
+    "61": [
+      "config_application",
+      "config_application_application",
+      "config_application_experthubapi"
+    ],
+    "62": [
+      "db_migrate_20260607000002_create_tenants",
+      "db_migrate_20260607000002_create_tenants_createtenants",
+      "db_migrate_20260607000002_create_tenants_createtenants_change"
+    ],
+    "63": [
+      "db_migrate_20260607000003_create_users",
+      "db_migrate_20260607000003_create_users_createusers",
+      "db_migrate_20260607000003_create_users_createusers_change"
+    ],
+    "64": [
+      "db_migrate_20260607000004_create_memberships",
+      "db_migrate_20260607000004_create_memberships_creatememberships",
+      "db_migrate_20260607000004_create_memberships_creatememberships_change"
+    ],
+    "65": [
+      "db_migrate_20260607000005_create_expert_profiles",
+      "db_migrate_20260607000005_create_expert_profiles_createexpertprofiles",
+      "db_migrate_20260607000005_create_expert_profiles_createexpertprofiles_change"
+    ],
+    "66": [
+      "db_migrate_20260607000006_create_categories",
+      "db_migrate_20260607000006_create_categories_createcategories",
+      "db_migrate_20260607000006_create_categories_createcategories_change"
+    ],
+    "67": [
+      "db_migrate_20260607000007_create_services",
+      "db_migrate_20260607000007_create_services_createservices",
+      "db_migrate_20260607000007_create_services_createservices_change"
+    ],
+    "68": [
+      "db_migrate_20260607000008_create_working_time_slots",
+      "db_migrate_20260607000008_create_working_time_slots_createworkingtimeslots",
+      "db_migrate_20260607000008_create_working_time_slots_createworkingtimeslots_change"
+    ],
+    "69": [
+      "db_migrate_20260607000009_create_bookings",
+      "db_migrate_20260607000009_create_bookings_createbookings",
+      "db_migrate_20260607000009_create_bookings_createbookings_change"
+    ],
+    "70": [
+      "db_migrate_20260607000010_create_payment_configs",
+      "db_migrate_20260607000010_create_payment_configs_createpaymentconfigs",
+      "db_migrate_20260607000010_create_payment_configs_createpaymentconfigs_change"
+    ],
+    "71": [
+      "db_migrate_20260607060001_create_payout_accounts",
+      "db_migrate_20260607060001_create_payout_accounts_createpayoutaccounts",
+      "db_migrate_20260607060001_create_payout_accounts_createpayoutaccounts_change"
+    ],
+    "72": [
+      "db_migrate_20260607060002_create_reviews",
+      "db_migrate_20260607060002_create_reviews_createreviews",
+      "db_migrate_20260607060002_create_reviews_createreviews_change"
+    ],
+    "73": [
+      "db_migrate_20260607060003_create_reschedule_requests",
+      "db_migrate_20260607060003_create_reschedule_requests_createreschedulerequests",
+      "db_migrate_20260607060003_create_reschedule_requests_createreschedulerequests_change"
+    ],
+    "74": [
+      "db_migrate_20260607060004_create_cancellation_policies",
+      "db_migrate_20260607060004_create_cancellation_policies_createcancellationpolicies",
+      "db_migrate_20260607060004_create_cancellation_policies_createcancellationpolicies_change"
+    ],
+    "75": [
+      "db_migrate_20260607060005_create_conversations_and_messages",
+      "db_migrate_20260607060005_create_conversations_and_messages_createconversationsandmessages",
+      "db_migrate_20260607060005_create_conversations_and_messages_createconversationsandmessages_change"
+    ],
+    "76": [
+      "db_migrate_20260607060006_create_notifications",
+      "db_migrate_20260607060006_create_notifications_createnotifications",
+      "db_migrate_20260607060006_create_notifications_createnotifications_change"
+    ],
+    "77": [
+      "db_migrate_20260607060007_create_expert_embeddings",
+      "db_migrate_20260607060007_create_expert_embeddings_createexpertembeddings",
+      "db_migrate_20260607060007_create_expert_embeddings_createexpertembeddings_change"
+    ],
+    "78": [
+      "db_migrate_20260607060008_create_ai_triage_sessions",
+      "db_migrate_20260607060008_create_ai_triage_sessions_createaitriagesessions",
+      "db_migrate_20260607060008_create_ai_triage_sessions_createaitriagesessions_change"
+    ],
+    "79": [
+      "db_migrate_20260607060009_create_session_summaries",
+      "db_migrate_20260607060009_create_session_summaries_createsessionsummaries",
+      "db_migrate_20260607060009_create_session_summaries_createsessionsummaries_change"
+    ],
+    "80": [
+      "db_migrate_20260607070001_create_courses_and_lessons",
+      "db_migrate_20260607070001_create_courses_and_lessons_createcoursesandlessons",
+      "db_migrate_20260607070001_create_courses_and_lessons_createcoursesandlessons_change"
+    ],
+    "81": [
+      "db_migrate_20260607070002_create_enrollments_and_certificates",
+      "db_migrate_20260607070002_create_enrollments_and_certificates_createenrollmentsandcertificates",
+      "db_migrate_20260607070002_create_enrollments_and_certificates_createenrollmentsandcertificates_change"
+    ],
+    "82": [
+      "db_migrate_20260607070003_create_group_sessions",
+      "db_migrate_20260607070003_create_group_sessions_creategroupsessions",
+      "db_migrate_20260607070003_create_group_sessions_creategroupsessions_change"
+    ],
+    "83": [
+      "db_migrate_20260607070004_create_booking_packages",
+      "db_migrate_20260607070004_create_booking_packages_createbookingpackages",
+      "db_migrate_20260607070004_create_booking_packages_createbookingpackages_change"
+    ],
+    "84": [
+      "db_migrate_20260607070005_create_subscriptions",
+      "db_migrate_20260607070005_create_subscriptions_createsubscriptions",
+      "db_migrate_20260607070005_create_subscriptions_createsubscriptions_change"
+    ],
+    "85": [
+      "db_migrate_20260607070006_create_promo_codes",
+      "db_migrate_20260607070006_create_promo_codes_createpromocodes",
+      "db_migrate_20260607070006_create_promo_codes_createpromocodes_change"
+    ],
+    "86": [
+      "db_migrate_20260607070007_create_checkout_fields",
+      "db_migrate_20260607070007_create_checkout_fields_createcheckoutfields",
+      "db_migrate_20260607070007_create_checkout_fields_createcheckoutfields_change"
+    ],
+    "87": [
+      "db_migrate_20260607070008_create_pages",
+      "db_migrate_20260607070008_create_pages_createpages",
+      "db_migrate_20260607070008_create_pages_createpages_change"
+    ],
+    "88": [
+      "db_migrate_20260607070009_add_custom_domain_to_tenants",
+      "db_migrate_20260607070009_add_custom_domain_to_tenants_addcustomdomaintotenants",
+      "db_migrate_20260607070009_add_custom_domain_to_tenants_addcustomdomaintotenants_change"
+    ],
+    "89": [
+      "db_migrate_20260607080001_add_referral_fields_to_users",
+      "db_migrate_20260607080001_add_referral_fields_to_users_addreferralfieldstousers",
+      "db_migrate_20260607080001_add_referral_fields_to_users_addreferralfieldstousers_change"
+    ],
+    "90": [
+      "db_migrate_20260607080002_create_referral_credits",
+      "db_migrate_20260607080002_create_referral_credits_createreferralcredits",
+      "db_migrate_20260607080002_create_referral_credits_createreferralcredits_change"
+    ],
+    "91": [
+      "db_migrate_20260607080003_add_translations_to_categories_and_pages",
+      "db_migrate_20260607080003_add_translations_to_categories_and_pages_addtranslationstocategoriesandpages",
+      "db_migrate_20260607080003_add_translations_to_categories_and_pages_addtranslationstocategoriesandpages_change"
+    ],
+    "92": [
+      "db_migrate_20260607080004_add_supported_locales_to_tenants",
+      "db_migrate_20260607080004_add_supported_locales_to_tenants_addsupportedlocalestotenants",
+      "db_migrate_20260607080004_add_supported_locales_to_tenants_addsupportedlocalestotenants_change"
+    ],
+    "93": [
+      "db_migrate_20260607090001_create_expert_applications_and_setup_steps",
+      "db_migrate_20260607090001_create_expert_applications_and_setup_steps_createexpertapplicationsandsetupsteps",
+      "db_migrate_20260607090001_create_expert_applications_and_setup_steps_createexpertapplicationsandsetupsteps_change"
+    ],
+    "94": [
+      "db_migrate_20260611000001_fix_indexes_and_expert_profile_uniqueness",
+      "db_migrate_20260611000001_fix_indexes_and_expert_profile_uniqueness_fixindexesandexpertprofileuniqueness",
+      "db_migrate_20260611000001_fix_indexes_and_expert_profile_uniqueness_fixindexesandexpertprofileuniqueness_change"
+    ],
+    "95": [
+      "db_migrate_20260611000003_add_stripe_subscription_to_tenants",
+      "db_migrate_20260611000003_add_stripe_subscription_to_tenants_addstripesubscriptiontotenants",
+      "db_migrate_20260611000003_add_stripe_subscription_to_tenants_addstripesubscriptiontotenants_change"
+    ],
+    "96": [
+      "app_models_cancellation_policy",
+      "app_models_cancellation_policy_cancellationpolicy"
+    ],
+    "97": [
+      "app_models_certificate",
+      "app_models_certificate_certificate"
+    ],
+    "98": [
+      "app_models_conversation_participation",
+      "app_models_conversation_participation_conversationparticipation"
+    ],
+    "99": [
+      "app_models_quiz_question",
+      "app_models_quiz_question_quizquestion"
+    ],
+    "100": [
+      "app_models_tenant_setup_step",
+      "app_models_tenant_setup_step_tenantsetupstep"
+    ],
+    "101": [
+      "config_initializers_rack_attack",
+      "config_initializers_rack_attack_rack_attack"
+    ],
+    "102": [
+      "deploy_bootstrap_server",
+      "deploy_bootstrap_server_sh__entry"
+    ],
+    "103": [
+      "deploy_first_boot",
+      "deploy_first_boot_sh__entry"
+    ],
+    "104": [
+      "deploy_nip_domain",
+      "deploy_nip_domain_sh__entry"
+    ],
+    "105": [
+      "deploy_setup_env",
+      "deploy_setup_env_sh__entry"
+    ],
+    "106": [
+      "deploy_verify",
+      "deploy_verify_sh__entry"
+    ],
+    "107": [
+      "spec_requests_bookings_transcript_spec",
+      "spec_requests_bookings_transcript_spec_auth_headers_for"
+    ],
+    "108": [
+      "spec_requests_phase_2_api_spec",
+      "spec_requests_phase_2_api_spec_auth_headers"
+    ],
+    "109": [
+      "spec_requests_phase_3_api_spec",
+      "spec_requests_phase_3_api_spec_auth_headers"
+    ],
+    "110": [
+      "spec_requests_phase_4_api_spec",
+      "spec_requests_phase_4_api_spec_auth_headers"
+    ],
+    "111": [
+      "spec_requests_tenant_isolation_spec",
+      "spec_requests_tenant_isolation_spec_auth_headers"
+    ],
+    "112": [
+      "config_boot"
+    ],
+    "113": [
+      "config_ci"
+    ],
+    "114": [
+      "config_environment"
+    ],
+    "115": [
+      "config_environments_development"
+    ],
+    "116": [
+      "config_environments_production"
+    ],
+    "117": [
+      "config_environments_test"
+    ],
+    "118": [
+      "config_initializers_cors"
+    ],
+    "119": [
+      "config_initializers_devise"
+    ],
+    "120": [
+      "config_initializers_filter_parameter_logging"
+    ],
+    "121": [
+      "config_initializers_inflections"
+    ],
+    "122": [
+      "config_initializers_sentry"
+    ],
+    "123": [
+      "config_puma"
+    ],
+    "124": [
+      "config_routes"
+    ],
+    "125": [
+      "db_queue_schema"
+    ],
+    "126": [
+      "db_schema"
+    ],
+    "127": [
+      "spec_factories"
+    ],
+    "128": [
+      "spec_models_booking_spec"
+    ],
+    "129": [
+      "spec_models_phase_3_models_spec"
+    ],
+    "130": [
+      "spec_models_phase_4_models_spec"
+    ],
+    "131": [
+      "spec_models_reschedule_request_spec"
+    ],
+    "132": [
+      "spec_models_review_spec"
+    ],
+    "133": [
+      "spec_models_tenant_spec"
+    ],
+    "134": [
+      "spec_rails_helper"
+    ],
+    "135": [
+      "spec_requests_booking_flow_spec"
+    ],
+    "136": [
+      "spec_requests_webhooks_spec"
+    ],
+    "137": [
+      "spec_services_ai_generate_summary_service_spec"
+    ],
+    "138": [
+      "spec_services_ai_match_experts_service_spec"
+    ],
+    "139": [
+      "spec_services_ai_triage_chat_service_spec"
+    ],
+    "140": [
+      "spec_services_availability_service_spec"
+    ],
+    "141": [
+      "spec_services_commission_calculator_spec"
+    ],
+    "142": [
+      "spec_services_razorpay_service_spec"
+    ],
+    "143": [
+      "spec_services_stripe_service_spec"
+    ],
+    "144": [
+      "spec_spec_helper"
+    ]
+  },
+  "cohesion": {
+    "0": 0.06507936507936508,
+    "1": 0.07394957983193277,
+    "2": 0.06722689075630252,
+    "3": 0.09803921568627451,
+    "4": 0.07196969696969698,
+    "5": 0.08547008547008547,
+    "6": 0.08,
+    "7": 0.09523809523809523,
+    "8": 0.14035087719298245,
+    "9": 0.21666666666666667,
+    "10": 0.1523809523809524,
+    "11": 0.1978021978021978,
+    "12": 0.15384615384615385,
+    "13": 0.19230769230769232,
+    "14": 0.16666666666666666,
+    "15": 0.1794871794871795,
+    "16": 0.21212121212121213,
+    "17": 0.21212121212121213,
+    "18": 0.16666666666666666,
+    "19": 0.18181818181818182,
+    "20": 0.24444444444444444,
+    "21": 0.24444444444444444,
+    "22": 0.2,
+    "23": 0.26666666666666666,
+    "24": 0.3055555555555556,
+    "25": 0.25,
+    "26": 0.2857142857142857,
+    "27": 0.2857142857142857,
+    "28": 0.42857142857142855,
+    "29": 0.3333333333333333,
+    "30": 0.3333333333333333,
+    "31": 0.3333333333333333,
+    "32": 0.3333333333333333,
+    "33": 0.3333333333333333,
+    "34": 0.3333333333333333,
+    "35": 0.6,
+    "36": 0.4,
+    "37": 0.4,
+    "38": 0.4,
+    "39": 0.4,
+    "40": 0.4,
+    "41": 0.4,
+    "42": 0.4,
+    "43": 0.5,
+    "44": 0.5,
+    "45": 0.5,
+    "46": 0.5,
+    "47": 0.6666666666666666,
+    "48": 0.5,
+    "49": 0.5,
+    "50": 0.5,
+    "51": 0.5,
+    "52": 0.6666666666666666,
+    "53": 0.6666666666666666,
+    "54": 0.6666666666666666,
+    "55": 0.6666666666666666,
+    "56": 0.6666666666666666,
+    "57": 0.6666666666666666,
+    "58": 0.6666666666666666,
+    "59": 0.6666666666666666,
+    "60": 0.6666666666666666,
+    "61": 1.0,
+    "62": 0.6666666666666666,
+    "63": 0.6666666666666666,
+    "64": 0.6666666666666666,
+    "65": 0.6666666666666666,
+    "66": 0.6666666666666666,
+    "67": 0.6666666666666666,
+    "68": 0.6666666666666666,
+    "69": 0.6666666666666666,
+    "70": 0.6666666666666666,
+    "71": 0.6666666666666666,
+    "72": 0.6666666666666666,
+    "73": 0.6666666666666666,
+    "74": 0.6666666666666666,
+    "75": 0.6666666666666666,
+    "76": 0.6666666666666666,
+    "77": 0.6666666666666666,
+    "78": 0.6666666666666666,
+    "79": 0.6666666666666666,
+    "80": 0.6666666666666666,
+    "81": 0.6666666666666666,
+    "82": 0.6666666666666666,
+    "83": 0.6666666666666666,
+    "84": 0.6666666666666666,
+    "85": 0.6666666666666666,
+    "86": 0.6666666666666666,
+    "87": 0.6666666666666666,
+    "88": 0.6666666666666666,
+    "89": 0.6666666666666666,
+    "90": 0.6666666666666666,
+    "91": 0.6666666666666666,
+    "92": 0.6666666666666666,
+    "93": 0.6666666666666666,
+    "94": 0.6666666666666666,
+    "95": 0.6666666666666666,
+    "96": 1.0,
+    "97": 1.0,
+    "98": 1.0,
+    "99": 1.0,
+    "100": 1.0,
+    "101": 1.0,
+    "102": 1.0,
+    "103": 1.0,
+    "104": 1.0,
+    "105": 1.0,
+    "106": 1.0,
+    "107": 1.0,
+    "108": 1.0,
+    "109": 1.0,
+    "110": 1.0,
+    "111": 1.0,
+    "112": 1.0,
+    "113": 1.0,
+    "114": 1.0,
+    "115": 1.0,
+    "116": 1.0,
+    "117": 1.0,
+    "118": 1.0,
+    "119": 1.0,
+    "120": 1.0,
+    "121": 1.0,
+    "122": 1.0,
+    "123": 1.0,
+    "124": 1.0,
+    "125": 1.0,
+    "126": 1.0,
+    "127": 1.0,
+    "128": 1.0,
+    "129": 1.0,
+    "130": 1.0,
+    "131": 1.0,
+    "132": 1.0,
+    "133": 1.0,
+    "134": 1.0,
+    "135": 1.0,
+    "136": 1.0,
+    "137": 1.0,
+    "138": 1.0,
+    "139": 1.0,
+    "140": 1.0,
+    "141": 1.0,
+    "142": 1.0,
+    "143": 1.0,
+    "144": 1.0
+  },
+  "gods": [
+    {
+      "id": "app_controllers_application_controller_applicationcontroller",
+      "label": "ApplicationController",
+      "degree": 52
+    },
+    {
+      "id": "app_models_application_record_applicationrecord",
+      "label": "ApplicationRecord",
+      "degree": 48
+    },
+    {
+      "id": "app_models_booking_booking",
+      "label": "Booking",
+      "degree": 31
+    },
+    {
+      "id": "app_controllers_bookings_controller_bookingscontroller",
+      "label": "BookingsController",
+      "degree": 21
+    },
+    {
+      "id": "app_models_user_user",
+      "label": "User",
+      "degree": 21
+    },
+    {
+      "id": "app_models_tenant_tenant",
+      "label": "Tenant",
+      "degree": 17
+    },
+    {
+      "id": "db_seeds_seed_tenant",
+      "label": "seed_tenant()",
+      "degree": 14
+    },
+    {
+      "id": "app_models_expert_profile_expertprofile",
+      "label": "ExpertProfile",
+      "degree": 13
+    },
+    {
+      "id": "app_models_reschedule_request_reschedulerequest",
+      "label": "RescheduleRequest",
+      "degree": 12
+    },
+    {
+      "id": "app_jobs_application_job_applicationjob",
+      "label": "ApplicationJob",
+      "degree": 11
+    }
+  ],
+  "surprises": [
+    {
+      "source": "seed_tenant()",
+      "target": "Booking",
+      "source_files": [
+        "db/seeds.rb",
+        "app/models/booking.rb"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "seed_tenant()",
+      "target": "Category",
+      "source_files": [
+        "db/seeds.rb",
+        "app/models/category.rb"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "seed_tenant()",
+      "target": "Enrollment",
+      "source_files": [
+        "db/seeds.rb",
+        "app/models/enrollment.rb"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "seed_tenant()",
+      "target": "ExpertProfile",
+      "source_files": [
+        "db/seeds.rb",
+        "app/models/expert_profile.rb"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "seed_tenant()",
+      "target": "GroupSession",
+      "source_files": [
+        "db/seeds.rb",
+        "app/models/group_session.rb"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `ApplicationController` connect `Community 8` to `Community 35`, `Community 4`, `Community 5`?",
+      "why": "High betweenness centrality (0.004) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Tenant` connect `Community 4` to `Community 6`?",
+      "why": "High betweenness centrality (0.002) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Booking` connect `Community 14` to `Community 46`, `Community 6`?",
+      "why": "High betweenness centrality (0.001) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `ApplicationCable`, `ApplicationCable`, `Ai` to the rest of the system?",
+      "why": "18 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.06507936507936508 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.07394957983193277 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 2` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.06722689075630252 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 
 class SubscriptionPlan < ApplicationRecord
   belongs_to :tenant
+  belongs_to :expert_profile, optional: true
   has_many :subscriptions, dependent: :destroy
 
   validates :name, presence: true

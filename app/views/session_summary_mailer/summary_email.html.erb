@@ -1,0 +1,43 @@
+<p>Hi <%= @recipient.displayed_name %>,</p>
+
+<p>Here is the AI-generated session summary and action items for your recent consultation on <%= @tenant.name %>.</p>
+
+<div class="detail-box">
+  <table>
+    <tr><td>Service</td><td><%= @booking.service.title %></td></tr>
+    <tr><td>Date</td><td><%= @booking.start_time.strftime("%A, %b %-d %Y") %></td></tr>
+    <tr><td>Expert</td><td><%= @expert.displayed_name %></td></tr>
+    <tr><td>Client</td><td><%= @client.displayed_name %></td></tr>
+  </table>
+</div>
+
+<h3>Session Summary</h3>
+<p style="white-space: pre-wrap; font-size: 14px; line-height: 1.6; background: #f8fafc; padding: 16px; border-radius: 8px; border: 1px solid #e2e8f0; color: #334155; margin: 16px 0;">
+  <%= @summary.summary %>
+</p>
+
+<% if @summary.action_items.present? %>
+  <h3>Action Items</h3>
+  <table style="width:100%; border-collapse:collapse; margin: 16px 0;">
+    <% @summary.action_items.each do |item| %>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:10px 0; font-size:14px; color:#334155;">
+          <span style="font-weight: bold; color: #4f46e5; margin-right: 6px;">☐</span>
+          <span><%= item["description"] %></span>
+        </td>
+        <td style="padding:10px 0; text-align:right; font-size:12px; font-weight:600; color:#64748b;">
+          Assignee: <span style="text-transform:capitalize; color:#4f46e5;"><%= item["assignee"] %></span>
+          <% if item["due_date"].present? %>
+            <br /><span style="font-size:11px; font-weight:normal; color:#94a3b8;">Due: <%= Date.parse(item["due_date"]).strftime("%b %-d, %Y") rescue item["due_date"] %></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<p style="margin-top:24px;">You can check your tasks, leave a review, or schedule follow-up sessions on your dashboard:</p>
+
+<p><a href="http://<%= @tenant.domain.presence || "#{@tenant.ident}.experthub.localhost" %>/dashboard" class="btn" style="color: #ffffff;">Go to Dashboard</a></p>
+
+<p>Thanks for using <%= @tenant.name %>!</p>

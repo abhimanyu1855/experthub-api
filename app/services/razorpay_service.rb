@@ -99,6 +99,48 @@ class RazorpayService
     end
   end
 
+  # Refund a captured Razorpay payment
+  def self.refund_booking(booking, amount_cents:)
+    amount_cents = amount_cents.to_i
+    return nil if amount_cents <= 0
+
+    payment_record = booking.payment_records.where(gateway: "razorpay", status: "succeeded").first
+    raise RazorpayError, "Booking has no successful Razorpay payment record" if payment_record.blank?
+
+    tenant = booking.tenant
+    payment_config = tenant.payment_configs.razorpay.active.first
+    raise RazorpayError, "Razorpay not configured for this tenant" unless payment_config
+
+    key_id = payment_config.publishable_key
+    key_secret = payment_config.encrypted_credentials
+
+    conn = Faraday.new(url: "https://api.razorpay.com") do |f|
+      f.request :authorization, :basic, key_id, key_secret
+      f.request :json
+      f.response :json
+      f.adapter Faraday.default_adapter
+    end
+
+    response = conn.post("/v1/payments/#{payment_record.provider_id}/refund") do |req|
+      req.body = {
+        amount: amount_cents
+      }
+    end
+
+    if response.success?
+      refund_id = response.body["id"]
+      payment_record.update!(status: "refunded")
+      booking.update!(
+        metadata: (booking.metadata || {}).merge(
+          "razorpay_refund_id" => refund_id
+        )
+      )
+      { status: "refunded", refund_id: refund_id }
+    else
+      raise RazorpayError, "Razorpay refund failed: #{response.body}"
+    end
+  end
+
   # Verify and handle webhook
   def self.handle_webhook(payload:, signature:, tenant:)
     payment_config = tenant.payment_configs.razorpay.active.first

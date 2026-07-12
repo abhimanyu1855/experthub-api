@@ -149,6 +149,41 @@ class StripeService
     transfer
   end
 
+  def self.transfer_subscription_payout(subscription)
+    expert_profile = subscription.subscription_plan.expert_profile
+    return unless expert_profile&.stripe_account_id.present?
+
+    price_cents = subscription.subscription_plan.price_cents
+    commission_pct = 10
+    expert_payout_cents = price_cents - (price_cents * commission_pct / 100).to_i
+
+    payment_config = subscription.tenant.payment_configs.stripe.active.first
+    return unless payment_config
+
+    Stripe.api_key = secret_key_for(payment_config)
+
+    transfer = Stripe::Transfer.create(
+      amount: expert_payout_cents,
+      currency: subscription.subscription_plan.currency.downcase,
+      destination: expert_profile.stripe_account_id,
+      transfer_group: "subscription_#{subscription.id}",
+      metadata: {
+        subscription_id: subscription.id,
+        expert_payout_cents: expert_payout_cents,
+        platform_commission_cents: price_cents - expert_payout_cents
+      }
+    )
+
+    subscription.update!(
+      stripe_subscription_id: transfer.id,
+      status: "active"
+    )
+    transfer
+  rescue => e
+    Rails.logger.error "Stripe subscription Connect transfer failed: #{e.message}"
+    nil
+  end
+
   private
 
   def self.handle_payment_succeeded(payment_intent, _tenant)
