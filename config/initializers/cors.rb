@@ -18,8 +18,12 @@ allowed_origins = [
 
 # In production add the real wildcard subdomain and any explicit extra origins
 if Rails.env.production?
-  allowed_origins << /\Ahttps:\/\/.*\.#{Regexp.escape(app_domain)}\z/
-  # e.g. CORS_EXTRA_ORIGINS=https://admin.experthub.app,https://experthub.app
+  # Allow both http and https — http is needed for nip.io/EC2 without a domain
+  allowed_origins << /\Ahttps?:\/\/.*\.#{Regexp.escape(app_domain)}\z/
+  # Always allow the root domain itself (e.g. http://13-48-105-59.nip.io)
+  allowed_origins << "http://#{app_domain}"
+  allowed_origins << "https://#{app_domain}"
+  # e.g. CORS_EXTRA_ORIGINS=http://sosmydoctor.13-48-105-59.nip.io
   ENV.fetch("CORS_EXTRA_ORIGINS", "").split(",").each do |origin|
     allowed_origins << origin.strip unless origin.strip.empty?
   end
