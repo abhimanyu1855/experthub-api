@@ -19,6 +19,14 @@ class BookingEndedJob < ApplicationJob
       Rails.logger.info "ENDED: Skipping AI session summary for booking ##{booking.id} because tenant ##{booking.tenant_id} does not allow session_summaries"
     end
 
+    # Send booking completed emails
+    begin
+      BookingMailer.booking_completed_to_client(booking).deliver_later
+      BookingMailer.booking_completed_to_expert(booking).deliver_later
+    rescue => e
+      Rails.logger.error "Failed to send booking completed emails for booking ##{booking.id}: #{e.message}"
+    end
+
     Rails.logger.info "ENDED: Processed post-session tasks for booking ##{booking.id}"
   end
 end

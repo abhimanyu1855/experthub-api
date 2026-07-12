@@ -15,6 +15,14 @@ module Ai
         transcript: transcript
       )
 
+      # Send summary emails to client and expert
+      begin
+        SessionSummaryMailer.summary_email(booking, booking.client).deliver_later
+        SessionSummaryMailer.summary_email(booking, booking.expert).deliver_later
+      rescue => e
+        Rails.logger.error "Failed to send session summary email for booking ##{booking.id}: #{e.message}"
+      end
+
       summary_record
     end
 

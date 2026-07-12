@@ -1,0 +1,632 @@
+{
+  "blueprints/booking_blueprint.rb": {
+    "mtime": 1783000699.2046034,
+    "ast_hash": "281da2ed132db70912eda367d76def0b",
+    "semantic_hash": "281da2ed132db70912eda367d76def0b"
+  },
+  "blueprints/category_blueprint.rb": {
+    "mtime": 1780809674.9715867,
+    "ast_hash": "e69c9fd2febe7d97996f09d3e3a05350",
+    "semantic_hash": "e69c9fd2febe7d97996f09d3e3a05350"
+  },
+  "blueprints/expert_profile_blueprint.rb": {
+    "mtime": 1783000736.7277083,
+    "ast_hash": "7df5605db6fd3b1ef5a55e291f53637d",
+    "semantic_hash": "7df5605db6fd3b1ef5a55e291f53637d"
+  },
+  "blueprints/service_blueprint.rb": {
+    "mtime": 1780809680.0950322,
+    "ast_hash": "2fc8ef5033d4a8b7a1ffec0cd0d49c48",
+    "semantic_hash": "2fc8ef5033d4a8b7a1ffec0cd0d49c48"
+  },
+  "blueprints/simple_user_blueprint.rb": {
+    "mtime": 1780853098.8629837,
+    "ast_hash": "bc79de87325f4b6d4d0289217b426c79",
+    "semantic_hash": "bc79de87325f4b6d4d0289217b426c79"
+  },
+  "blueprints/user_blueprint.rb": {
+    "mtime": 1780809452.8948083,
+    "ast_hash": "3db2fdb894c25f3dce5fc240424da9f7",
+    "semantic_hash": "3db2fdb894c25f3dce5fc240424da9f7"
+  },
+  "channels/application_cable/channel.rb": {
+    "mtime": 1783000699.2113686,
+    "ast_hash": "4016125b85c8b970051eaba94bf45b51",
+    "semantic_hash": "4016125b85c8b970051eaba94bf45b51"
+  },
+  "channels/application_cable/connection.rb": {
+    "mtime": 1783000699.187764,
+    "ast_hash": "96b68b3c8b505f797582957d6dac723e",
+    "semantic_hash": "96b68b3c8b505f797582957d6dac723e"
+  },
+  "channels/conversation_channel.rb": {
+    "mtime": 1783000699.2047796,
+    "ast_hash": "20068e9de387537c6e134d1c0d72b993",
+    "semantic_hash": "20068e9de387537c6e134d1c0d72b993"
+  },
+  "channels/notification_channel.rb": {
+    "mtime": 1783000699.1674812,
+    "ast_hash": "7e4abef883156a4ef44bfe61f79386fd",
+    "semantic_hash": "7e4abef883156a4ef44bfe61f79386fd"
+  },
+  "controllers/admin/expert_applications_controller.rb": {
+    "mtime": 1783000699.204668,
+    "ast_hash": "0286ba43e6b274ec9a7a43ac13392e33",
+    "semantic_hash": "0286ba43e6b274ec9a7a43ac13392e33"
+  },
+  "controllers/admin/onboarding_status_controller.rb": {
+    "mtime": 1780833420.402254,
+    "ast_hash": "a37723f4c1050c5ef6009b31f1697cad",
+    "semantic_hash": "a37723f4c1050c5ef6009b31f1697cad"
+  },
+  "controllers/admin/users_controller.rb": {
+    "mtime": 1783000736.721652,
+    "ast_hash": "afd6cd03b018a5ba8a103d1fd80d2567",
+    "semantic_hash": "afd6cd03b018a5ba8a103d1fd80d2567"
+  },
+  "controllers/ai/match_controller.rb": {
+    "mtime": 1783000699.1682816,
+    "ast_hash": "0ec74f121960e0171212bc22960ab899",
+    "semantic_hash": "0ec74f121960e0171212bc22960ab899"
+  },
+  "controllers/ai/triage_controller.rb": {
+    "mtime": 1783000699.1694627,
+    "ast_hash": "3ea87c29b5f38e0f782324aece34c793",
+    "semantic_hash": "3ea87c29b5f38e0f782324aece34c793"
+  },
+  "controllers/analytics_controller.rb": {
+    "mtime": 1783000699.20469,
+    "ast_hash": "3420bf4b103cbde252588523438f3702",
+    "semantic_hash": "3420bf4b103cbde252588523438f3702"
+  },
+  "controllers/application_controller.rb": {
+    "mtime": 1783000699.1615007,
+    "ast_hash": "e4ec4309a76bade09159012896cb6a80",
+    "semantic_hash": "e4ec4309a76bade09159012896cb6a80"
+  },
+  "controllers/availability_controller.rb": {
+    "mtime": 1782577894.8412635,
+    "ast_hash": "c8b1f930a4a860808bcab726918fd85c",
+    "semantic_hash": "c8b1f930a4a860808bcab726918fd85c"
+  },
+  "controllers/billing_controller.rb": {
+    "mtime": 1783000699.168096,
+    "ast_hash": "6f9df25eb88baf028809ab07474d08a2",
+    "semantic_hash": "6f9df25eb88baf028809ab07474d08a2"
+  },
+  "controllers/booking_packages_controller.rb": {
+    "mtime": 1783000699.2046323,
+    "ast_hash": "05b25d0e12dfad7d84b4ef5ee90f5bee",
+    "semantic_hash": "05b25d0e12dfad7d84b4ef5ee90f5bee"
+  },
+  "controllers/bookings_controller.rb": {
+    "mtime": 1783000699.1691852,
+    "ast_hash": "10886dc33aceba6e2fd5c79165254ca5",
+    "semantic_hash": "10886dc33aceba6e2fd5c79165254ca5"
+  },
+  "controllers/cancellation_policies_controller.rb": {
+    "mtime": 1783000699.1877487,
+    "ast_hash": "d4442afbda653bbf50dd42e4964c3935",
+    "semantic_hash": "d4442afbda653bbf50dd42e4964c3935"
+  },
+  "controllers/categories_controller.rb": {
+    "mtime": 1780892078.4574924,
+    "ast_hash": "601ab81db661dfbfc0c6515e66721c13",
+    "semantic_hash": "601ab81db661dfbfc0c6515e66721c13"
+  },
+  "controllers/checkout_fields_controller.rb": {
+    "mtime": 1780892083.0664272,
+    "ast_hash": "c19b0e9ec6b98940e5e99e8ee51f0263",
+    "semantic_hash": "c19b0e9ec6b98940e5e99e8ee51f0263"
+  },
+  "controllers/conversations_controller.rb": {
+    "mtime": 1783000699.158735,
+    "ast_hash": "11dc6fac51abeff62cbca9a989f72b65",
+    "semantic_hash": "11dc6fac51abeff62cbca9a989f72b65"
+  },
+  "controllers/courses_controller.rb": {
+    "mtime": 1783000699.1878264,
+    "ast_hash": "9fe2a6f5cd9fe8f9de397777a97d82fb",
+    "semantic_hash": "9fe2a6f5cd9fe8f9de397777a97d82fb"
+  },
+  "controllers/expert_applications_controller.rb": {
+    "mtime": 1780830945.855642,
+    "ast_hash": "1e1afa8724ec4a018d879c28fd8f251e",
+    "semantic_hash": "1e1afa8724ec4a018d879c28fd8f251e"
+  },
+  "controllers/experts_controller.rb": {
+    "mtime": 1783000699.20474,
+    "ast_hash": "6da29b297249d04ac194cd46eaf05f0f",
+    "semantic_hash": "6da29b297249d04ac194cd46eaf05f0f"
+  },
+  "controllers/group_sessions_controller.rb": {
+    "mtime": 1783000699.1590946,
+    "ast_hash": "9246ef42d721a04289cd1bbfe61c744e",
+    "semantic_hash": "9246ef42d721a04289cd1bbfe61c744e"
+  },
+  "controllers/lessons_controller.rb": {
+    "mtime": 1783000698.793614,
+    "ast_hash": "3cf81686f5f2e55a177ade3e242f5cff",
+    "semantic_hash": "3cf81686f5f2e55a177ade3e242f5cff"
+  },
+  "controllers/messages_controller.rb": {
+    "mtime": 1780810779.5175626,
+    "ast_hash": "d29cd3cdcea500ee2f64609f1a9121b9",
+    "semantic_hash": "d29cd3cdcea500ee2f64609f1a9121b9"
+  },
+  "controllers/notifications_controller.rb": {
+    "mtime": 1783000699.169329,
+    "ast_hash": "d9b87295c557f80db038ffe691f11214",
+    "semantic_hash": "d9b87295c557f80db038ffe691f11214"
+  },
+  "controllers/pages_controller.rb": {
+    "mtime": 1780811668.212895,
+    "ast_hash": "aa55b3fede5f7b9c3c6cdeb407c0501c",
+    "semantic_hash": "aa55b3fede5f7b9c3c6cdeb407c0501c"
+  },
+  "controllers/payment_configs_controller.rb": {
+    "mtime": 1780892072.377653,
+    "ast_hash": "aa91fc2dbc20d0de32f3d3fd579a6c2d",
+    "semantic_hash": "aa91fc2dbc20d0de32f3d3fd579a6c2d"
+  },
+  "controllers/promo_codes_controller.rb": {
+    "mtime": 1783000699.1596937,
+    "ast_hash": "d3bc94e5baef2c00365a903930e189de",
+    "semantic_hash": "d3bc94e5baef2c00365a903930e189de"
+  },
+  "controllers/referrals_controller.rb": {
+    "mtime": 1780812022.364332,
+    "ast_hash": "1f224d9d7cf964fca2a99017af3855c8",
+    "semantic_hash": "1f224d9d7cf964fca2a99017af3855c8"
+  },
+  "controllers/reschedule_requests_controller.rb": {
+    "mtime": 1780810768.8497686,
+    "ast_hash": "b93347e4f6bdd40fe2370dcd02a400a1",
+    "semantic_hash": "b93347e4f6bdd40fe2370dcd02a400a1"
+  },
+  "controllers/reviews_controller.rb": {
+    "mtime": 1780831624.3177476,
+    "ast_hash": "14db69a6c08c0dfa61907ae1912dbcef",
+    "semantic_hash": "14db69a6c08c0dfa61907ae1912dbcef"
+  },
+  "controllers/services_controller.rb": {
+    "mtime": 1783000699.158625,
+    "ast_hash": "6969e9385af2efdf048552bef4bef9b4",
+    "semantic_hash": "6969e9385af2efdf048552bef4bef9b4"
+  },
+  "controllers/subscription_plans_controller.rb": {
+    "mtime": 1783000699.1675377,
+    "ast_hash": "d01ac099c338c5dc32e74ac934e5fc29",
+    "semantic_hash": "d01ac099c338c5dc32e74ac934e5fc29"
+  },
+  "controllers/subscriptions_controller.rb": {
+    "mtime": 1783000699.16837,
+    "ast_hash": "e1564b07a8971c8402685cf806eb7516",
+    "semantic_hash": "e1564b07a8971c8402685cf806eb7516"
+  },
+  "controllers/tenants_controller.rb": {
+    "mtime": 1783000699.161556,
+    "ast_hash": "80a954eb930f39688b8dc55edf4691e9",
+    "semantic_hash": "80a954eb930f39688b8dc55edf4691e9"
+  },
+  "controllers/users/registrations_controller.rb": {
+    "mtime": 1780812138.0185554,
+    "ast_hash": "3298f011b3bcc810c287b6c520d11619",
+    "semantic_hash": "3298f011b3bcc810c287b6c520d11619"
+  },
+  "controllers/users/sessions_controller.rb": {
+    "mtime": 1780809461.593329,
+    "ast_hash": "1e03ad12f11b64e4ed30e383c3a03c7b",
+    "semantic_hash": "1e03ad12f11b64e4ed30e383c3a03c7b"
+  },
+  "controllers/users_controller.rb": {
+    "mtime": 1783000699.1681728,
+    "ast_hash": "a417e479cf688a4a7055fc0b272d7740",
+    "semantic_hash": "a417e479cf688a4a7055fc0b272d7740"
+  },
+  "controllers/webhooks_controller.rb": {
+    "mtime": 1783000699.1010733,
+    "ast_hash": "ede91cae7f41c2b7395192bc52ccee02",
+    "semantic_hash": "ede91cae7f41c2b7395192bc52ccee02"
+  },
+  "controllers/working_time_slots_controller.rb": {
+    "mtime": 1783000699.1687667,
+    "ast_hash": "a80575b4a7c62facf8c072b7c9c45b0d",
+    "semantic_hash": "a80575b4a7c62facf8c072b7c9c45b0d"
+  },
+  "jobs/application_job.rb": {
+    "mtime": 1780808052.8937123,
+    "ast_hash": "bdecd79f2c18f1519c7d39f08ba41ea9",
+    "semantic_hash": "bdecd79f2c18f1519c7d39f08ba41ea9"
+  },
+  "jobs/booking_ended_job.rb": {
+    "mtime": 1783000699.1680796,
+    "ast_hash": "551d26c0390d54765a933d4c020d1760",
+    "semantic_hash": "551d26c0390d54765a933d4c020d1760"
+  },
+  "jobs/booking_reminder_job.rb": {
+    "mtime": 1783000699.1748824,
+    "ast_hash": "e49fdc9b81e1eff096fa6589ed21bce1",
+    "semantic_hash": "e49fdc9b81e1eff096fa6589ed21bce1"
+  },
+  "jobs/booking_started_job.rb": {
+    "mtime": 1780809613.8691962,
+    "ast_hash": "b9a3a759d54da6afb1484339c5881627",
+    "semantic_hash": "b9a3a759d54da6afb1484339c5881627"
+  },
+  "jobs/confirm_booking_job.rb": {
+    "mtime": 1780809604.6657472,
+    "ast_hash": "ead11894c4187faeaa73fa65c700b561",
+    "semantic_hash": "ead11894c4187faeaa73fa65c700b561"
+  },
+  "jobs/create_video_room_job.rb": {
+    "mtime": 1780809622.9862773,
+    "ast_hash": "82e383c3d09efa1805b49939a2ef844f",
+    "semantic_hash": "82e383c3d09efa1805b49939a2ef844f"
+  },
+  "jobs/generate_embedding_job.rb": {
+    "mtime": 1780810672.0344882,
+    "ast_hash": "66e7b76ee04a6e2ba182c9b582c06fd2",
+    "semantic_hash": "66e7b76ee04a6e2ba182c9b582c06fd2"
+  },
+  "jobs/new_booking_notification_job.rb": {
+    "mtime": 1783000916.7314622,
+    "ast_hash": "f3311dbb05783764207dfd52f14d10f4",
+    "semantic_hash": "f3311dbb05783764207dfd52f14d10f4"
+  },
+  "jobs/send_booking_receipt_job.rb": {
+    "mtime": 1783000916.7203767,
+    "ast_hash": "0dc77ae43e5e76e8fa468078d386c057",
+    "semantic_hash": "0dc77ae43e5e76e8fa468078d386c057"
+  },
+  "jobs/send_webhook_job.rb": {
+    "mtime": 1783000699.203783,
+    "ast_hash": "3c747f4fe980631ca3ac28c0a0141410",
+    "semantic_hash": "3c747f4fe980631ca3ac28c0a0141410"
+  },
+  "mailers/application_mailer.rb": {
+    "mtime": 1783000916.5534055,
+    "ast_hash": "2a36e7f0908359ca6ab37ad7e5060ef2",
+    "semantic_hash": "2a36e7f0908359ca6ab37ad7e5060ef2"
+  },
+  "mailers/booking_mailer.rb": {
+    "mtime": 1783000916.560705,
+    "ast_hash": "2fc35083507edee1f0ad8dee895c1a62",
+    "semantic_hash": "2fc35083507edee1f0ad8dee895c1a62"
+  },
+  "mailers/expert_mailer.rb": {
+    "mtime": 1783000698.7935987,
+    "ast_hash": "ef555b707168bc3618a65e83ebb7a462",
+    "semantic_hash": "ef555b707168bc3618a65e83ebb7a462"
+  },
+  "models/ai_triage_session.rb": {
+    "mtime": 1780810623.0169528,
+    "ast_hash": "538843ead167a277b27c9759e45b580c",
+    "semantic_hash": "538843ead167a277b27c9759e45b580c"
+  },
+  "models/application_record.rb": {
+    "mtime": 1780808052.8944666,
+    "ast_hash": "8061f2304feb5db0f90c9086b9c30377",
+    "semantic_hash": "8061f2304feb5db0f90c9086b9c30377"
+  },
+  "models/blocked_date.rb": {
+    "mtime": 1780808423.9279022,
+    "ast_hash": "181dddf31b89737347dabe6641f8d807",
+    "semantic_hash": "181dddf31b89737347dabe6641f8d807"
+  },
+  "models/booking.rb": {
+    "mtime": 1783000917.0788062,
+    "ast_hash": "395c7ca7b9118e7f91ffc48a4c0f4ec2",
+    "semantic_hash": "395c7ca7b9118e7f91ffc48a4c0f4ec2"
+  },
+  "models/booking_package.rb": {
+    "mtime": 1780811519.1491177,
+    "ast_hash": "8855a64e735ab6efe44ce7a4b4756957",
+    "semantic_hash": "8855a64e735ab6efe44ce7a4b4756957"
+  },
+  "models/booking_transition.rb": {
+    "mtime": 1780810866.011635,
+    "ast_hash": "029155864cbb09aa2b15a27ddf4fb427",
+    "semantic_hash": "029155864cbb09aa2b15a27ddf4fb427"
+  },
+  "models/cancellation_policy.rb": {
+    "mtime": 1780810593.927487,
+    "ast_hash": "8636c43e0ad699219585469447c785b2",
+    "semantic_hash": "8636c43e0ad699219585469447c785b2"
+  },
+  "models/category.rb": {
+    "mtime": 1780811937.5810177,
+    "ast_hash": "7d2aab0e6a2d6bed7d2546a264b2b3a5",
+    "semantic_hash": "7d2aab0e6a2d6bed7d2546a264b2b3a5"
+  },
+  "models/certificate.rb": {
+    "mtime": 1780811500.8173864,
+    "ast_hash": "eb86fb2e287832ca321b691f58c61dc7",
+    "semantic_hash": "eb86fb2e287832ca321b691f58c61dc7"
+  },
+  "models/checkout_field.rb": {
+    "mtime": 1780811558.6129198,
+    "ast_hash": "afa3ac567d87dcd3390045569ada94ed",
+    "semantic_hash": "afa3ac567d87dcd3390045569ada94ed"
+  },
+  "models/checkout_field_value.rb": {
+    "mtime": 1780811563.8258796,
+    "ast_hash": "748d9a9a051ee19d521a09af9294a9b2",
+    "semantic_hash": "748d9a9a051ee19d521a09af9294a9b2"
+  },
+  "models/concerns/localizable.rb": {
+    "mtime": 1780811929.6516151,
+    "ast_hash": "df6275445c2e50ec19fa42021a06b584",
+    "semantic_hash": "df6275445c2e50ec19fa42021a06b584"
+  },
+  "models/concerns/plan_features.rb": {
+    "mtime": 1783000699.1877341,
+    "ast_hash": "40d08a71c39a9cbd36b659575727efb4",
+    "semantic_hash": "40d08a71c39a9cbd36b659575727efb4"
+  },
+  "models/conversation.rb": {
+    "mtime": 1780810599.1630657,
+    "ast_hash": "f22fcefb2e3bbb245460e2c23d5df7bc",
+    "semantic_hash": "f22fcefb2e3bbb245460e2c23d5df7bc"
+  },
+  "models/conversation_participation.rb": {
+    "mtime": 1780810603.3062017,
+    "ast_hash": "730b29c2a66373dab7348c581aa64930",
+    "semantic_hash": "730b29c2a66373dab7348c581aa64930"
+  },
+  "models/course.rb": {
+    "mtime": 1783000699.204713,
+    "ast_hash": "f467736fe25b48bbb18674da2e9bc661",
+    "semantic_hash": "f467736fe25b48bbb18674da2e9bc661"
+  },
+  "models/current.rb": {
+    "mtime": 1780808312.9498227,
+    "ast_hash": "d41f77d61aeeffdae213909d03512f2f",
+    "semantic_hash": "d41f77d61aeeffdae213909d03512f2f"
+  },
+  "models/enrollment.rb": {
+    "mtime": 1780811489.8545341,
+    "ast_hash": "fac9f9e26d57918b33567d2a8fdfd274",
+    "semantic_hash": "fac9f9e26d57918b33567d2a8fdfd274"
+  },
+  "models/expert_application.rb": {
+    "mtime": 1780830924.080057,
+    "ast_hash": "7fd672e36e85a2307926b62023a182fc",
+    "semantic_hash": "7fd672e36e85a2307926b62023a182fc"
+  },
+  "models/expert_embedding.rb": {
+    "mtime": 1780810618.0222218,
+    "ast_hash": "c06c4dff4b02278abf41cf49d971c57e",
+    "semantic_hash": "c06c4dff4b02278abf41cf49d971c57e"
+  },
+  "models/expert_profile.rb": {
+    "mtime": 1783000736.7217934,
+    "ast_hash": "5f82d1894907861fd6f4a9e4e5df5e5d",
+    "semantic_hash": "5f82d1894907861fd6f4a9e4e5df5e5d"
+  },
+  "models/group_session.rb": {
+    "mtime": 1783000917.101363,
+    "ast_hash": "321de9a4d88cf3d8dcba443841b9c2ed",
+    "semantic_hash": "321de9a4d88cf3d8dcba443841b9c2ed"
+  },
+  "models/lesson.rb": {
+    "mtime": 1780811466.5983942,
+    "ast_hash": "6cc0c7baf45066f6f9d8d119457203ba",
+    "semantic_hash": "6cc0c7baf45066f6f9d8d119457203ba"
+  },
+  "models/lesson_progress.rb": {
+    "mtime": 1780811495.4093916,
+    "ast_hash": "2b4ff1bdaa001efa891680ab6c4d2ebd",
+    "semantic_hash": "2b4ff1bdaa001efa891680ab6c4d2ebd"
+  },
+  "models/lesson_quiz.rb": {
+    "mtime": 1780811472.3485987,
+    "ast_hash": "c2a50c604195c11dfc8ad715201652e3",
+    "semantic_hash": "c2a50c604195c11dfc8ad715201652e3"
+  },
+  "models/membership.rb": {
+    "mtime": 1780811836.6190422,
+    "ast_hash": "8f7d89f73f6759adc8627df1ec5c4e13",
+    "semantic_hash": "8f7d89f73f6759adc8627df1ec5c4e13"
+  },
+  "models/message.rb": {
+    "mtime": 1783000699.1687324,
+    "ast_hash": "fa3bd7de384233f3cb1c1d524cb55e47",
+    "semantic_hash": "fa3bd7de384233f3cb1c1d524cb55e47"
+  },
+  "models/notification.rb": {
+    "mtime": 1783000699.1682765,
+    "ast_hash": "b262ca8749d6c1b17238d3d098380942",
+    "semantic_hash": "b262ca8749d6c1b17238d3d098380942"
+  },
+  "models/package_purchase.rb": {
+    "mtime": 1780811526.00877,
+    "ast_hash": "44fa8d4756621bfbaed40cc553bacd1a",
+    "semantic_hash": "44fa8d4756621bfbaed40cc553bacd1a"
+  },
+  "models/page.rb": {
+    "mtime": 1780811944.4159715,
+    "ast_hash": "a1d477e68b3ed6664fdb666d37f78f21",
+    "semantic_hash": "a1d477e68b3ed6664fdb666d37f78f21"
+  },
+  "models/payment_config.rb": {
+    "mtime": 1780810709.159089,
+    "ast_hash": "5c0844c2aa5ae6daedb84857ba44a39c",
+    "semantic_hash": "5c0844c2aa5ae6daedb84857ba44a39c"
+  },
+  "models/payment_record.rb": {
+    "mtime": 1780808428.2095487,
+    "ast_hash": "904527889a820da4b7692c4abed33f42",
+    "semantic_hash": "904527889a820da4b7692c4abed33f42"
+  },
+  "models/payout_account.rb": {
+    "mtime": 1780810577.4355574,
+    "ast_hash": "4160a26b2d3268235ae729e367eb011a",
+    "semantic_hash": "4160a26b2d3268235ae729e367eb011a"
+  },
+  "models/promo_code.rb": {
+    "mtime": 1780811546.957223,
+    "ast_hash": "981d6e27e756555a80064763d3aef754",
+    "semantic_hash": "981d6e27e756555a80064763d3aef754"
+  },
+  "models/promo_redemption.rb": {
+    "mtime": 1780811552.9598114,
+    "ast_hash": "3cc6a5d29b95eb3c2b95e1488e26c6a3",
+    "semantic_hash": "3cc6a5d29b95eb3c2b95e1488e26c6a3"
+  },
+  "models/quiz_option.rb": {
+    "mtime": 1780811483.5977435,
+    "ast_hash": "b6b2e249f6656e6a5ad6119638ba3958",
+    "semantic_hash": "b6b2e249f6656e6a5ad6119638ba3958"
+  },
+  "models/quiz_question.rb": {
+    "mtime": 1780811477.2620194,
+    "ast_hash": "ad9a2ba352f63fba27da8c2826cc0014",
+    "semantic_hash": "ad9a2ba352f63fba27da8c2826cc0014"
+  },
+  "models/referral_credit.rb": {
+    "mtime": 1780811923.6381412,
+    "ast_hash": "09b625e1d0ad84b3687fd39ce627a77c",
+    "semantic_hash": "09b625e1d0ad84b3687fd39ce627a77c"
+  },
+  "models/reschedule_request.rb": {
+    "mtime": 1782577894.8423765,
+    "ast_hash": "c49a586b23f446d241a86a5c8ba370e0",
+    "semantic_hash": "c49a586b23f446d241a86a5c8ba370e0"
+  },
+  "models/review.rb": {
+    "mtime": 1780810833.6559,
+    "ast_hash": "a696ba95f8c9905d10fca931d5de9902",
+    "semantic_hash": "a696ba95f8c9905d10fca931d5de9902"
+  },
+  "models/service.rb": {
+    "mtime": 1780810666.2342849,
+    "ast_hash": "42aa2fd39db77648b89ed174b13f76fa",
+    "semantic_hash": "42aa2fd39db77648b89ed174b13f76fa"
+  },
+  "models/session_attendance.rb": {
+    "mtime": 1780811513.2268527,
+    "ast_hash": "58a69b4d5f9266536bde4c2153625b98",
+    "semantic_hash": "58a69b4d5f9266536bde4c2153625b98"
+  },
+  "models/session_summary.rb": {
+    "mtime": 1780810627.6901586,
+    "ast_hash": "8b9692ed989c8ec5e8764c231581d2e0",
+    "semantic_hash": "8b9692ed989c8ec5e8764c231581d2e0"
+  },
+  "models/subscription.rb": {
+    "mtime": 1780811540.3395078,
+    "ast_hash": "301c392aef79ec2da49e8fe3a3dfa592",
+    "semantic_hash": "301c392aef79ec2da49e8fe3a3dfa592"
+  },
+  "models/subscription_plan.rb": {
+    "mtime": 1783000699.168666,
+    "ast_hash": "075f22e9c1cffd1d53d4930e40643aac",
+    "semantic_hash": "075f22e9c1cffd1d53d4930e40643aac"
+  },
+  "models/tenant.rb": {
+    "mtime": 1783000699.1674957,
+    "ast_hash": "fd2d3f0f8c4074cd85dd9e253c6701b7",
+    "semantic_hash": "fd2d3f0f8c4074cd85dd9e253c6701b7"
+  },
+  "models/tenant_setup_step.rb": {
+    "mtime": 1780830929.1331117,
+    "ast_hash": "73cad943e539b2c991b898c20bc4ec4c",
+    "semantic_hash": "73cad943e539b2c991b898c20bc4ec4c"
+  },
+  "models/user.rb": {
+    "mtime": 1783000699.1585858,
+    "ast_hash": "4be415b0111c42240074fcf1461a0491",
+    "semantic_hash": "4be415b0111c42240074fcf1461a0491"
+  },
+  "models/video_room.rb": {
+    "mtime": 1780808430.3835647,
+    "ast_hash": "c9475f94fd22a5febed696aa5c20f91e",
+    "semantic_hash": "c9475f94fd22a5febed696aa5c20f91e"
+  },
+  "models/working_time_slot.rb": {
+    "mtime": 1780808421.911874,
+    "ast_hash": "0b6550557a743b2309e2835d7e12262f",
+    "semantic_hash": "0b6550557a743b2309e2835d7e12262f"
+  },
+  "policies/application_policy.rb": {
+    "mtime": 1780809476.4987206,
+    "ast_hash": "c1c6814642ffdd5c6f3fe644305c403c",
+    "semantic_hash": "c1c6814642ffdd5c6f3fe644305c403c"
+  },
+  "services/ai/generate_summary_service.rb": {
+    "mtime": 1780810697.1797163,
+    "ast_hash": "81f2e68d193066b13a7cf666e5e8e891",
+    "semantic_hash": "81f2e68d193066b13a7cf666e5e8e891"
+  },
+  "services/ai/match_experts_service.rb": {
+    "mtime": 1780810683.7943568,
+    "ast_hash": "4e38bd7286b30989f18fae0b7f39ca40",
+    "semantic_hash": "4e38bd7286b30989f18fae0b7f39ca40"
+  },
+  "services/ai/triage_chat_service.rb": {
+    "mtime": 1780810690.936678,
+    "ast_hash": "036156783dd874352246f8ac42919a7b",
+    "semantic_hash": "036156783dd874352246f8ac42919a7b"
+  },
+  "services/availability_service.rb": {
+    "mtime": 1782577894.8426921,
+    "ast_hash": "d02a6f3dbf19636251c4fd585c37a2c6",
+    "semantic_hash": "d02a6f3dbf19636251c4fd585c37a2c6"
+  },
+  "services/booking_service.rb": {
+    "mtime": 1783000917.0879908,
+    "ast_hash": "39cb7f9b1d3ba2c8a264854c6da362d6",
+    "semantic_hash": "39cb7f9b1d3ba2c8a264854c6da362d6"
+  },
+  "services/commission_calculator.rb": {
+    "mtime": 1780894199.6968725,
+    "ast_hash": "966c198327bc516d56d627b4d7212488",
+    "semantic_hash": "966c198327bc516d56d627b4d7212488"
+  },
+  "services/daily_service.rb": {
+    "mtime": 1783000699.1686997,
+    "ast_hash": "4f1530d2a6e6c60d651ed2f69b2113eb",
+    "semantic_hash": "4f1530d2a6e6c60d651ed2f69b2113eb"
+  },
+  "services/payfast_service.rb": {
+    "mtime": 1783000699.3204808,
+    "ast_hash": "25ec9c4ba82732047e79d4243085f116",
+    "semantic_hash": "25ec9c4ba82732047e79d4243085f116"
+  },
+  "services/paypal_service.rb": {
+    "mtime": 1783000699.2078826,
+    "ast_hash": "eca497d79f55dad4e71b6e887ebee456",
+    "semantic_hash": "eca497d79f55dad4e71b6e887ebee456"
+  },
+  "services/platform_billing_service.rb": {
+    "mtime": 1783000699.1587794,
+    "ast_hash": "8cf9c1c344fb2d295bfc650ba8c3fa09",
+    "semantic_hash": "8cf9c1c344fb2d295bfc650ba8c3fa09"
+  },
+  "services/razorpay_service.rb": {
+    "mtime": 1783000699.16944,
+    "ast_hash": "ae0f5cf44b4b0b6982c291bdeb4121ea",
+    "semantic_hash": "ae0f5cf44b4b0b6982c291bdeb4121ea"
+  },
+  "services/referral_service.rb": {
+    "mtime": 1780812189.1801493,
+    "ast_hash": "1e6b0a769e777eea4cda175f1277ad00",
+    "semantic_hash": "1e6b0a769e777eea4cda175f1277ad00"
+  },
+  "services/stripe_service.rb": {
+    "mtime": 1783000699.1614466,
+    "ast_hash": "ac06e0a35507df2ccf14cdea9e7f0b0b",
+    "semantic_hash": "ac06e0a35507df2ccf14cdea9e7f0b0b"
+  },
+  "services/tenant_setup_service.rb": {
+    "mtime": 1783000917.1305645,
+    "ast_hash": "93d0c3ded7dd4660cbcc189d68e1f334",
+    "semantic_hash": "93d0c3ded7dd4660cbcc189d68e1f334"
+  },
+  "services/webhook_service.rb": {
+    "mtime": 1783000699.1978102,
+    "ast_hash": "753a4825f39b932965b81143202ed64a",
+    "semantic_hash": "753a4825f39b932965b81143202ed64a"
+  }
+}

@@ -19,10 +19,11 @@ Rails.application.configure do
   # config.asset_host = "http://assets.example.com"
 
   # Assume all access to the app is happening through a SSL-terminating reverse proxy.
-  config.assume_ssl = true
+  force_ssl_enabled = ENV.fetch("FORCE_SSL", "true") == "true"
+  config.assume_ssl = force_ssl_enabled
 
   # Force SSL when behind HTTPS (set FORCE_SSL=false for HTTP-only demos e.g. nip.io on EC2).
-  config.force_ssl = ENV.fetch("FORCE_SSL", "true") == "true"
+  config.force_ssl = force_ssl_enabled
 
   # Skip http-to-https redirect for the default health check endpoint.
   # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
@@ -48,7 +49,7 @@ Rails.application.configure do
       :memory_store
     end
 
-  # Solid Queue for background jobs (optional in Puma on Render free tier)
+  # Solid Queue for background jobs (optional in Puma)
   if ENV["SOLID_QUEUE_IN_PUMA"] == "true"
     config.active_job.queue_adapter = :solid_queue
     config.solid_queue.connects_to = { database: { writing: :queue } }
@@ -60,9 +61,10 @@ Rails.application.configure do
   config.active_storage.service = ENV.fetch("ACTIVE_STORAGE_SERVICE", "local").to_sym
 
   # Email — use SMTP when configured; otherwise :test (no crash without Resend key)
+  mailer_protocol = force_ssl_enabled ? "https" : "http"
   config.action_mailer.default_url_options = {
     host: ENV.fetch("APP_DOMAIN", "experthub.app"),
-    protocol: "https"
+    protocol: mailer_protocol
   }
 
   if ENV["SMTP_PASSWORD"].present?
@@ -93,7 +95,7 @@ Rails.application.configure do
   config.active_record.attributes_for_inspect = [ :id ]
 
   # DNS rebinding protection — allow the root domain and all subdomains.
-  # APP_DOMAIN=experthub.app → allows experthub.app and *.experthub.app
+  # APP_DOMAIN=54-123-45-67.nip.io → allows that host and *.54-123-45-67.nip.io
   app_domain = ENV.fetch("APP_DOMAIN", "experthub.app")
   config.hosts = [
     app_domain,

@@ -62,7 +62,9 @@ class ApplicationController < ActionController::API
   end
 
   def tenant_required?
-    !devise_controller?
+    return false if devise_controller?
+    return false if controller_name == "users" && action_name == "me"
+    true
   end
 
   def extract_subdomain

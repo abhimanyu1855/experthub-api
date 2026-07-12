@@ -11,6 +11,7 @@ class ExpertProfile < ApplicationRecord
   has_many :courses, dependent: :destroy
   has_many :group_sessions, dependent: :destroy
   has_many :booking_packages, dependent: :destroy
+  has_many :subscription_plans, dependent: :destroy
 
   enum :approval_status, { pending_approval: 0, approved: 1, rejected: 2 }
 

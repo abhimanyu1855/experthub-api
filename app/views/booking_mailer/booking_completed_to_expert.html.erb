@@ -1,0 +1,18 @@
+<p>Hi <%= @expert.displayed_name %>,</p>
+
+<p>Your consultation session with <strong><%= @client.displayed_name %></strong> is officially complete.</p>
+
+<div class="detail-box">
+  <table>
+    <tr><td>Service</td><td><%= @service.title %></td></tr>
+    <tr><td>Client</td><td><%= @client.displayed_name %></td></tr>
+    <tr><td>Duration</td><td><%= @booking.duration_minutes %> minutes</td></tr>
+    <tr><td>Your Earnings</td><td><%= @booking.currency.upcase %> <%= (@booking.expert_payout_cents / 100.0).round(2) %></td></tr>
+  </table>
+</div>
+
+<p>Make sure to write or upload your session notes/transcript in the dashboard to generate the AI summary for the client.</p>
+
+<p><a class="btn" style="color: #ffffff;" href="http://<%= @tenant.domain.presence || "#{@tenant.ident}.experthub.localhost" %>/dashboard">View Earnings &amp; Notes</a></p>
+
+<p>Thanks for hosting on <%= @tenant.name %>!</p>

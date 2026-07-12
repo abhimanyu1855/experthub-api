@@ -36,11 +36,27 @@ class Admin::ExpertApplicationsController < ApplicationController
       
       # Create or update ExpertProfile
       expert_profile = application.user.expert_profile || ExpertProfile.new(user: application.user, tenant: current_tenant)
+      
+      initial_credentials = []
+      if application.application_data["credentials"].present?
+        initial_credentials << { name: "Verification", details: application.application_data["credentials"] }
+      end
+
+      initial_press = []
+      if application.application_data["linkedin"].present?
+        initial_press << { name: "LinkedIn", url: application.application_data["linkedin"] }
+      end
+      if application.application_data["website"].present?
+        initial_press << { name: "Website", url: application.application_data["website"] }
+      end
+
       expert_profile.update!(
         tenant: current_tenant,
         specialization: application.application_data["headline"] || application.application_data["expertise"] || "Expert",
         bio: application.application_data["bio"] || "",
-        approval_status: "approved"
+        approval_status: "approved",
+        credentials: initial_credentials,
+        press_links: initial_press
       )
     end
 

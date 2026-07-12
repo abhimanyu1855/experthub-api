@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_11_000003) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_11_120000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "vector"
@@ -266,8 +266,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_11_000003) do
     t.text "bio"
     t.integer "bookings_count", default: 0
     t.datetime "created_at", null: false
+    t.jsonb "credentials", default: []
     t.integer "default_slot_duration", default: 30
+    t.string "intro_video_url"
     t.boolean "is_on_duty", default: true
+    t.jsonb "press_links", default: []
     t.string "rejection_message"
     t.integer "reviews_count", default: 0
     t.text "specialization"
@@ -579,11 +582,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_11_000003) do
     t.string "billing_interval", default: "monthly", null: false
     t.datetime "created_at", null: false
     t.string "currency", default: "USD", null: false
+    t.bigint "expert_profile_id"
     t.string "name", null: false
     t.integer "price_cents", null: false
     t.string "target_role", null: false
     t.bigint "tenant_id", null: false
     t.datetime "updated_at", null: false
+    t.index ["expert_profile_id"], name: "index_subscription_plans_on_expert_profile_id"
     t.index ["tenant_id"], name: "index_subscription_plans_on_tenant_id"
   end
 
@@ -778,6 +783,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_11_000003) do
   add_foreign_key "session_attendances", "group_sessions"
   add_foreign_key "session_attendances", "users"
   add_foreign_key "session_summaries", "bookings"
+  add_foreign_key "subscription_plans", "expert_profiles"
   add_foreign_key "subscription_plans", "tenants"
   add_foreign_key "subscriptions", "subscription_plans"
   add_foreign_key "subscriptions", "tenants"

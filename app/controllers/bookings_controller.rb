@@ -68,6 +68,23 @@ class BookingsController < ApplicationController
     end
   end
 
+  # POST /bookings/:id/marketing_post
+  def marketing_post
+    booking = current_tenant.bookings.find(params[:id])
+    
+    unless current_user.id == booking.expert_id
+      return render json: { error: "Not authorized to generate a marketing post for this booking" }, status: :forbidden
+    end
+
+    post_text = Ai::GenerateMarketingPostService.generate_post(booking: booking)
+
+    if post_text.present?
+      render json: { post: post_text }
+    else
+      render json: { error: "Could not generate marketing post. Ensure a session summary exists." }, status: :unprocessable_entity
+    end
+  end
+
   # POST /bookings/:id/confirm
   def confirm
     booking = current_tenant.bookings.find(params[:id])
@@ -186,7 +203,8 @@ class BookingsController < ApplicationController
         StripeService.refund_booking(booking, amount_cents: refund_amount_cents)
         refund_processed = true
       when "razorpay"
-        Rails.logger.warn "TODO: Razorpay refund not implemented for booking ##{booking.id}"
+        RazorpayService.refund_booking(booking, amount_cents: refund_amount_cents)
+        refund_processed = true
       end
     end
 

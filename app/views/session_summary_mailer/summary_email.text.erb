@@ -1,0 +1,26 @@
+Hi <%= @recipient.displayed_name %>,
+
+Here is the AI-generated session summary and action items for your recent consultation on <%= @tenant.name %>.
+
+Service: <%= @booking.service.title %>
+Date: <%= @booking.start_time.strftime("%A, %b %-d %Y") %>
+Expert: <%= @expert.displayed_name %>
+Client: <%= @client.displayed_name %>
+
+============================================================
+SESSION SUMMARY
+============================================================
+<%= @summary.summary %>
+
+<% if @summary.action_items.present? %>
+============================================================
+ACTION ITEMS
+============================================================
+<% @summary.action_items.each do |item| %>
+[ ] <%= item["description"] %> (Assignee: <%= item["assignee"].capitalize %><%= ", Due: " + item["due_date"] if item["due_date"].present? %>)
+<% end %>
+<% end %>
+
+Access your dashboard here: http://<%= @tenant.domain.presence || "#{@tenant.ident}.experthub.localhost" %>/dashboard
+
+Thanks for using <%= @tenant.name %>!
