@@ -6,8 +6,9 @@ envVarGroups:
     envVars:
       - key: RAILS_ENV
         value: production
-      - key: SOLID_QUEUE_IN_PUMA
-        value: "true"
+      # Leave unset (or "false") until DATABASE_URL works and queue migrations have run.
+      # - key: SOLID_QUEUE_IN_PUMA
+      #   value: "true"
       - key: PGSSLMODE
         value: require
       - key: DATABASE_URL

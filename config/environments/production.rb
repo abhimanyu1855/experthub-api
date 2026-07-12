@@ -21,8 +21,8 @@ Rails.application.configure do
   # Assume all access to the app is happening through a SSL-terminating reverse proxy.
   config.assume_ssl = true
 
-  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  # Force SSL when behind HTTPS (set FORCE_SSL=false for HTTP-only demos e.g. nip.io on EC2).
+  config.force_ssl = ENV.fetch("FORCE_SSL", "true") == "true"
 
   # Skip http-to-https redirect for the default health check endpoint.
   # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
@@ -40,8 +40,13 @@ Rails.application.configure do
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
 
-  # Solid Cache for durable caching (webhook idempotency, rate limiting, etc.)
-  config.cache_store = :solid_cache_store
+  # Solid Cache needs DB tables; use in-memory cache until DATABASE_URL is healthy.
+  config.cache_store =
+    if ENV["SOLID_CACHE"] == "true"
+      :solid_cache_store
+    else
+      :memory_store
+    end
 
   # Solid Queue for background jobs (optional in Puma on Render free tier)
   if ENV["SOLID_QUEUE_IN_PUMA"] == "true"

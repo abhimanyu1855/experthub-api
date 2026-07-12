@@ -22,9 +22,14 @@ production:
     url: <%= ENV["DATABASE_URL"] %>
     migrations_paths: db/migrate
     sslmode: <%= ENV.fetch("PGSSLMODE", "require") %>
+    # Required for Supabase transaction pooler (port 6543); harmless on session pooler.
+    prepared_statements: <%= ENV.fetch("PGPREPAREDSTATEMENTS", "true") == "true" %>
+    connect_timeout: 5
 
   queue:
     <<: *default
     url: <%= ENV.fetch("QUEUE_DATABASE_URL") { ENV["DATABASE_URL"] } %>
     migrations_paths: db/queue_migrate
     sslmode: <%= ENV.fetch("PGSSLMODE", "require") %>
+    prepared_statements: <%= ENV.fetch("PGPREPAREDSTATEMENTS", "true") == "true" %>
+    connect_timeout: 5
