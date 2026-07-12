@@ -11,6 +11,7 @@ class GroupSession < ApplicationRecord
   validates :price_cents, numericality: { greater_than_or_equal_to: 0 }
   validates :max_participants, numericality: { only_integer: true, greater_than: 0 }
   validate :end_time_after_start_time
+  validate :no_expert_schedule_conflict, on: :create
 
   def registered_count
     attendances.count
@@ -26,6 +27,27 @@ class GroupSession < ApplicationRecord
     return unless start_time && end_time
     if end_time <= start_time
       errors.add(:end_time, "must be after start time")
+    end
+  end
+
+  def no_expert_schedule_conflict
+    return unless expert_profile && start_time && end_time
+
+    if ExpertScheduleService.conflicting_booking?(
+      expert_id: expert_profile.user_id,
+      start_time: start_time,
+      end_time: end_time
+    )
+      errors.add(:base, "Expert has a 1:1 booking during this time")
+    end
+
+    if ExpertScheduleService.conflicting_group_session?(
+      expert_profile_id: expert_profile_id,
+      start_time: start_time,
+      end_time: end_time,
+      exclude_group_session_id: id
+    )
+      errors.add(:base, "Expert has another group session during this time")
     end
   end
 end

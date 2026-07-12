@@ -18,9 +18,11 @@ Rails.application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
 
-  # Set FORCE_SSL=false for HTTP-only demos (e.g. nip.io on EC2 without a domain).
+  # Assume all access to the app is happening through a SSL-terminating reverse proxy.
   force_ssl_enabled = ENV.fetch("FORCE_SSL", "true") == "true"
   config.assume_ssl = force_ssl_enabled
+
+  # Force SSL when behind HTTPS (set FORCE_SSL=false for HTTP-only demos e.g. nip.io on EC2).
   config.force_ssl = force_ssl_enabled
 
   # Skip http-to-https redirect for the default health check endpoint.
@@ -39,7 +41,7 @@ Rails.application.configure do
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
 
-  # Solid Cache needs DB tables; use in-memory cache until explicitly enabled.
+  # Solid Cache needs DB tables; use in-memory cache until DATABASE_URL is healthy.
   config.cache_store =
     if ENV["SOLID_CACHE"] == "true"
       :solid_cache_store
@@ -47,7 +49,7 @@ Rails.application.configure do
       :memory_store
     end
 
-  # Solid Queue for background jobs (optional — disabled on EC2 free tier by default).
+  # Solid Queue for background jobs (optional in Puma)
   if ENV["SOLID_QUEUE_IN_PUMA"] == "true"
     config.active_job.queue_adapter = :solid_queue
     config.solid_queue.connects_to = { database: { writing: :queue } }
@@ -58,6 +60,7 @@ Rails.application.configure do
   # Active Storage (user avatars) — requires config/storage.yml
   config.active_storage.service = ENV.fetch("ACTIVE_STORAGE_SERVICE", "local").to_sym
 
+  # Email — use SMTP when configured; otherwise :test (no crash without Resend key)
   mailer_protocol = force_ssl_enabled ? "https" : "http"
   config.action_mailer.default_url_options = {
     host: ENV.fetch("APP_DOMAIN", "experthub.app"),

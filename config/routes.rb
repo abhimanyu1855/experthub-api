@@ -140,7 +140,7 @@ Rails.application.routes.draw do
   resources :experts, only: [:index, :show]
   patch 'experts/profile', to: 'experts#update_profile'
   get "up" => "rails/health#show", as: :rails_health_check
-  # Load balancers and raw-IP probes — API has no HTML root.
+  # Render and some load balancers probe HEAD / — API has no HTML root.
   match "/", to: redirect("/up"), via: [:get, :head]
 
   mount ActionCable.server => "/cable"

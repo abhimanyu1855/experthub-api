@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  def tenant_required?
+    false
+  end
+
   def me
     active_membership = current_membership
     if active_membership.nil? && Current.tenant.nil?

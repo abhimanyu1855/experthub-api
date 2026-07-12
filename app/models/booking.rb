@@ -49,6 +49,12 @@ class Booking < ApplicationRecord
   scope :for_expert, ->(user_id) { where(expert_id: user_id) }
   scope :for_client, ->(user_id) { where(client_id: user_id) }
   scope :confirmed_or_paid, -> { where(aasm_state: %w[paid confirmed confirmed_free]) }
+  scope :blocking_schedule, -> {
+    where(aasm_state: ExpertScheduleService::BLOCKING_BOOKING_STATES).or(
+      where(aasm_state: ExpertScheduleService::CHECKOUT_HOLD_STATES)
+        .where("created_at > ?", ExpertScheduleService::CHECKOUT_HOLD_TTL.ago)
+    )
+  }
 
   # --- State Machine (15 states, from mytin's 38) ---
   aasm do
@@ -153,17 +159,39 @@ class Booking < ApplicationRecord
     errors.add(:end_time, "must be after start time") if end_time <= start_time
   end
 
-  # Overlap detection — ported from mytin's booking overlap logic
-  # Checks existing confirmed/paid bookings for the same expert at overlapping times
+  # Overlap detection — blocks confirmed bookings, recent checkouts, and group sessions.
   def no_overlapping_bookings
     return unless expert_id && start_time && end_time
 
-    overlapping = Booking.where(expert_id: expert_id)
-                         .where.not(id: id)
-                         .confirmed_or_paid
-                         .where("start_time < ? AND end_time > ?", end_time, start_time)
+    expert_profile = service&.expert_profile || ExpertProfile.find_by(user_id: expert_id)
+    return unless expert_profile
 
-    errors.add(:base, "Expert has a conflicting booking at this time") if overlapping.exists?
+    if ExpertScheduleService.conflicting_booking?(
+      expert_id: expert_id,
+      start_time: start_time,
+      end_time: end_time,
+      exclude_booking_id: id
+    )
+      if Booking.where(expert_id: expert_id)
+                .where.not(id: id)
+                .where(aasm_state: ExpertScheduleService::CHECKOUT_HOLD_STATES)
+                .where("created_at > ?", ExpertScheduleService::CHECKOUT_HOLD_TTL.ago)
+                .where("start_time < ? AND end_time > ?", end_time, start_time)
+                .exists?
+        errors.add(:base, "This time slot is already reserved. Please choose another time.")
+      else
+        errors.add(:base, "Expert has a conflicting booking at this time")
+      end
+      return
+    end
+
+    if ExpertScheduleService.conflicting_group_session?(
+      expert_profile_id: expert_profile.id,
+      start_time: start_time,
+      end_time: end_time
+    )
+      errors.add(:base, "Expert has a group session at this time")
+    end
   end
 
   def after_payment

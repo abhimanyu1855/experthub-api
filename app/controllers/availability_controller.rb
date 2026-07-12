@@ -15,11 +15,17 @@ class AvailabilityController < ApplicationController
     end
 
     timezone_offset = (params[:timezone_offset] || 0).to_i
+    client_id = begin
+      current_user&.id
+    rescue => e
+      nil
+    end
 
     slots = AvailabilityService.available_slots(
       service: service,
       date: date,
-      timezone_offset: timezone_offset
+      timezone_offset: timezone_offset,
+      client_id: client_id
     )
 
     render json: { slots: slots }

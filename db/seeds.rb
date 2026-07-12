@@ -40,7 +40,7 @@ def seed_tenant(tenant_ident, tenant_name, suffix)
     family_name: "Johnson",
     display_name: "Alex the Operator"
   )
-  operator.confirm
+  operator.skip_confirmation! if operator.respond_to?(:skip_confirmation!)
 
   expert_jordan = User.create!(
     email: "jordan#{suffix}@experthub.com",
@@ -50,7 +50,7 @@ def seed_tenant(tenant_ident, tenant_name, suffix)
     family_name: "Rivera",
     display_name: "Jordan Rivera"
   )
-  expert_jordan.confirm
+  expert_jordan.skip_confirmation! if expert_jordan.respond_to?(:skip_confirmation!)
 
   expert_chen = User.create!(
     email: "chen#{suffix}@experthub.com",
@@ -60,7 +60,7 @@ def seed_tenant(tenant_ident, tenant_name, suffix)
     family_name: "Wei",
     display_name: "Dr. Chen Wei"
   )
-  expert_chen.confirm
+  expert_chen.skip_confirmation! if expert_chen.respond_to?(:skip_confirmation!)
 
   client = User.create!(
     email: "client#{suffix}@experthub.com",
@@ -70,7 +70,7 @@ def seed_tenant(tenant_ident, tenant_name, suffix)
     family_name: "Miller",
     display_name: "Sarah Miller"
   )
-  client.confirm
+  client.skip_confirmation! if client.respond_to?(:skip_confirmation!)
 
   # Onboarding status checklist pre-seed
   %w[name brand payments domain landing experts].each_with_index do |step_id, idx|
@@ -275,6 +275,6 @@ seed_tenant("acme2", "Acme Hub v2", "2")
 
 puts "Database seeded successfully!"
 
-if Rails.env.development?
+if Rails.env.development? || ENV["SEED_DEMO"] == "1"
   load Rails.root.join("db/seeds/demo.rb")
 end
