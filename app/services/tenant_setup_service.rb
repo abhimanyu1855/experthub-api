@@ -17,12 +17,27 @@ class TenantSetupService
       tenant = create_tenant
       create_operator_membership(tenant)
       create_default_category(tenant)
+      setup_development_stripe_config(tenant) if Rails.env.development? || Rails.env.test?
 
       tenant
     end
   end
 
   private
+
+  def setup_development_stripe_config(tenant)
+    publishable_key = ENV["DEV_STRIPE_PUBLISHABLE_KEY"]
+    secret_key = ENV["DEV_STRIPE_SECRET_KEY"]
+    return if publishable_key.blank? || secret_key.blank?
+
+    PaymentConfig.create!(
+      tenant: tenant,
+      gateway: "stripe",
+      publishable_key: publishable_key,
+      encrypted_credentials: { "secret_key" => secret_key }.to_json,
+      is_active: true
+    )
+  end
 
   def create_tenant
     Tenant.create!(
@@ -60,7 +75,7 @@ class TenantSetupService
     {
       "booking_buffer_minutes" => 30,
       "auto_confirm_bookings" => false,
-      "require_expert_approval" => true,
+      "require_expert_approval" => false,
       "send_booking_emails" => true,
       "webhooks_enabled" => false,
       "enable_courses" => false,
