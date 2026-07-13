@@ -6,16 +6,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
 
-    # Automatically skip confirmation in development and test environments to make testing/onboarding simple
+    # Skip confirmation in non-production so onboarding is frictionless during dev/test
     resource.skip_confirmation! if Rails.env.development? || Rails.env.test?
 
     resource.save
     yield resource if block_given?
     if resource.persisted?
       if Current.tenant
-        role = params[:role] || "client"
-        role = "client" unless %w[client expert operator].include?(role.to_s)
-        
+        # SECURITY: Only 'client' and 'expert' are allowed via public registration.
+        # 'operator' is a privileged role — it MUST be created by an existing operator
+        # through the admin panel (Admin::UsersController), never via self-signup.
+        allowed_roles = %w[client expert]
+        role = params[:role].to_s.downcase
+        role = "client" unless allowed_roles.include?(role)
+
         Membership.create!(
           user: resource,
           tenant: Current.tenant,
@@ -23,7 +27,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
           status: :active
         )
 
-        # If expert, create ExpertProfile
+        # Experts start as 'pending' — an operator must approve them before they
+        # can list services. Auto-approval would let anyone publish services immediately.
         if role == "expert"
           ExpertProfile.create!(
             user: resource,
@@ -31,7 +36,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
             specialization: params[:specialization],
             bio: params[:bio],
             title: params[:title],
-            approval_status: :approved # Auto-approve in dev/test for easy setup, or default to pending
+            approval_status: :pending
           )
         end
       end

@@ -36,7 +36,12 @@ class AnalyticsController < ApplicationController
 
     top_experts = current_tenant.bookings.confirmed_or_paid
       .joins("INNER JOIN users ON users.id = bookings.expert_id")
-      .joins("INNER JOIN expert_profiles ON expert_profiles.user_id = bookings.expert_id AND expert_profiles.tenant_id = #{current_tenant.id}")
+      .joins(
+        ActiveRecord::Base.sanitize_sql_array([
+          "INNER JOIN expert_profiles ON expert_profiles.user_id = bookings.expert_id AND expert_profiles.tenant_id = ?",
+          current_tenant.id
+        ])
+      )
       .group("users.id, users.given_name, users.family_name, expert_profiles.specialization, expert_profiles.average_rating")
       .select("users.id, users.given_name, users.family_name, expert_profiles.specialization, expert_profiles.average_rating, COUNT(bookings.id) AS bookings_count, SUM(bookings.price_cents) AS revenue_cents")
       .order("bookings_count DESC")

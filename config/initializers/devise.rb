@@ -90,7 +90,9 @@ Devise.setup do |config|
   # It will change confirmation, password recovery and other workflows
   # to behave the same regardless if the e-mail provided was right or wrong.
   # Does not affect registerable.
-  # config.paranoid = true
+  # Prevents user enumeration — always returns the same response for
+  # "email not found" and "wrong password" scenarios.
+  config.paranoid = true
 
   # By default Devise will store the user in session. You can skip storage for
   # particular strategies by setting this option.
@@ -180,8 +182,8 @@ Devise.setup do |config|
   # config.rememberable_options = {}
 
   # ==> Configuration for :validatable
-  # Range for password length.
-  config.password_length = 6..128
+  # Range for password length. NIST SP 800-63B recommends minimum 8.
+  config.password_length = 8..128
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
@@ -194,30 +196,22 @@ Devise.setup do |config|
   # config.timeout_in = 30.minutes
 
   # ==> Configuration for :lockable
-  # Defines which strategy will be used to lock an account.
-  # :failed_attempts = Locks an account after a number of failed attempts to sign in.
-  # :none            = No lock strategy. You should handle locking by yourself.
-  # config.lock_strategy = :failed_attempts
+  # Lock after 5 consecutive failed sign-in attempts.
+  config.lock_strategy = :failed_attempts
+  config.unlock_keys   = [:email]
 
-  # Defines which key will be used when locking and unlocking an account
-  # config.unlock_keys = [:email]
+  # Unlock via email link AND auto-unlock after 30 minutes.
+  # This lets legitimate users recover without admin intervention.
+  config.unlock_strategy = :both
 
-  # Defines which strategy will be used to unlock an account.
-  # :email = Sends an unlock link to the user email
-  # :time  = Re-enables login after a certain amount of time (see :unlock_in below)
-  # :both  = Enables both strategies
-  # :none  = No unlock strategy. You should handle unlocking by yourself.
-  # config.unlock_strategy = :both
+  # Lock after 5 bad password attempts.
+  config.maximum_attempts = 5
 
-  # Number of authentication tries before locking an account if lock_strategy
-  # is failed attempts.
-  # config.maximum_attempts = 20
+  # Auto-unlock after 30 minutes (for :time strategy).
+  config.unlock_in = 30.minutes
 
-  # Time interval to unlock the account if :time is enabled as unlock_strategy.
-  # config.unlock_in = 1.hour
-
-  # Warn on the last attempt before the account is locked.
-  # config.last_attempt_warning = true
+  # Warn the user on the last attempt before locking.
+  config.last_attempt_warning = true
 
   # ==> Configuration for :recoverable
   #
@@ -316,9 +310,13 @@ Devise.setup do |config|
 
   # ==> JWT Configuration
   config.jwt do |jwt|
+    # Production MUST have DEVISE_JWT_SECRET_KEY set — raises if missing.
+    # Development gets a random per-boot secret so tokens never cross environments.
     jwt.secret = ENV.fetch("DEVISE_JWT_SECRET_KEY") {
-      raise "DEVISE_JWT_SECRET_KEY is not set" if Rails.env.production?
-      "default_secret_key_for_devise_jwt_experthub_api_must_be_changed_in_prod_123456789"
+      raise "DEVISE_JWT_SECRET_KEY environment variable must be set in production!" if Rails.env.production?
+      # Random per-boot secret in dev/test — tokens are intentionally short-lived
+      # and cannot be shared between processes or across restarts.
+      @_dev_jwt_secret ||= SecureRandom.hex(64)
     }
     jwt.dispatch_requests = [
       ["POST", %r{\A/login\z}]
@@ -326,6 +324,8 @@ Devise.setup do |config|
     jwt.revocation_requests = [
       ["DELETE", %r{\A/logout\z}]
     ]
-    jwt.expiration_time = 1.day.to_i
+    # 8-hour expiry: balance between UX and stolen-token exposure window.
+    # Front-end should silently re-authenticate when approaching expiry.
+    jwt.expiration_time = 8.hours.to_i
   end
 end
