@@ -59,6 +59,7 @@ Rails.application.configure do
 
   # Active Storage (user avatars) — requires config/storage.yml
   config.active_storage.service = ENV.fetch("ACTIVE_STORAGE_SERVICE", "local").to_sym
+  config.routes.default_url_options = { host: ENV.fetch("APP_DOMAIN", "experthub.localhost") }
 
   # Email — use SMTP when configured; otherwise :test (no crash without Resend key)
   mailer_protocol = force_ssl_enabled ? "https" : "http"

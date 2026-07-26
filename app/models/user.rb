@@ -66,6 +66,16 @@ class User < ApplicationRecord
     avatar.attached?
   end
 
+  def avatar_url
+    return nil unless avatar.attached?
+
+    begin
+      Rails.application.routes.url_helpers.rails_blob_path(avatar, only_path: true)
+    rescue StandardError
+      nil
+    end
+  end
+
   # JWT payload
   def jwt_payload
     {

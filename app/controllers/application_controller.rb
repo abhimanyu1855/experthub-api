@@ -5,6 +5,7 @@ class ApplicationController < ActionController::API
   before_action :authenticate_user!
   before_action :set_current_tenant
   before_action :set_locale
+  before_action :set_active_storage_url_options
   before_action :require_tenant_membership!, unless: :devise_controller?
   before_action :check_plan_access!
 
@@ -33,6 +34,10 @@ class ApplicationController < ActionController::API
 
 
   private
+
+  def set_active_storage_url_options
+    ActiveStorage::Current.url_options = { host: request.base_url }
+  end
 
   # Resolve tenant from X-Tenant-Id header or subdomain
   # mytin equivalent: ApplicationController#current_community (from subdomain)

@@ -12,7 +12,6 @@ class UsersController < ApplicationController
     end
 
     user_data = UserBlueprint.render_as_hash(current_user)
-    user_data[:avatar_url] = current_user.avatar.attached? ? url_for(current_user.avatar) : nil
 
     render json: {
       user: user_data,
@@ -36,7 +35,6 @@ class UsersController < ApplicationController
       end
 
       user_data = UserBlueprint.render_as_hash(current_user)
-      user_data[:avatar_url] = current_user.avatar.attached? ? url_for(current_user.avatar) : nil
 
       render json: {
         status: { code: 200, message: "Profile updated successfully." },
