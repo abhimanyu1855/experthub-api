@@ -52,7 +52,9 @@ Rails.application.configure do
   config.active_job.queue_adapter = :inline
 
   config.active_storage.service = :local
-  config.routes.default_url_options = { host: "localhost", port: 3001 }
+  config.after_initialize do
+    Rails.application.routes.default_url_options = { host: "localhost", port: 3001 }
+  end
 
   # Highlight code that triggered redirect in logs.
   config.action_dispatch.verbose_redirect_logs = true
